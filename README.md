@@ -14,4 +14,12 @@ pip install -r requirements.txt
 # Stack
 Estamos usando Pelican para generar un sitio est4tico y subirlo a Github Pages
 
-
+# Como ejecutar el proyecto
+Primero debes activar el entorno virtual
+```
+source <nombre del entorno virtual>/bin/activate
+```
+y luego ejecuta
+```
+make html 2>&1
+```
