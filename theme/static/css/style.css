@@ -619,150 +619,166 @@ h1, h2, h3, h4, h5, h6 {
 /* ==========================================================================
    AGENDA
    ========================================================================== */
-.agenda-tabs {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--space-xs);
-    margin-bottom: var(--space-lg);
-}
 
-.agenda-tab {
-    padding: 0.5em 1.25em;
-    font-size: 0.9rem;
-    font-weight: 600;
-    border: 2px solid var(--color-border);
-    border-radius: 50px;
+/* CFP Notice */
+.agenda-cfp-notice {
+    text-align: center;
     background: var(--color-bg);
-    color: var(--color-slate);
-    cursor: pointer;
-    transition: all var(--transition);
+    border: 2px solid var(--color-red);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl) var(--space-md);
+    margin-bottom: var(--space-xl);
 }
 
-.agenda-tab:hover {
-    border-color: var(--color-red);
+.cfp-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: rgba(193, 1, 9, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--space-md);
     color: var(--color-red);
 }
 
-.agenda-tab.active {
-    background: var(--color-red);
-    border-color: var(--color-red);
-    color: var(--color-bg);
+.agenda-cfp-notice h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-sm);
+    color: var(--color-red);
 }
 
-.agenda-table-wrapper {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    border-radius: var(--radius-md);
-    border: 1px solid var(--color-border);
-    background: var(--color-bg);
+.agenda-cfp-notice p {
+    max-width: 550px;
+    margin: 0 auto var(--space-md);
+    color: var(--color-slate);
+    font-size: 1rem;
+    line-height: 1.6;
 }
 
-.agenda-table {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 500px;
+/* Timeline Preview */
+.agenda-preview {
+    max-width: 650px;
+    margin: 0 auto;
 }
 
-.agenda-table thead {
-    background: var(--color-text);
-}
-
-.agenda-table th {
-    padding: var(--space-sm) var(--space-md);
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: var(--color-bg);
-    text-align: left;
+.agenda-preview-title {
+    font-size: 1.15rem;
+    text-align: center;
+    margin-bottom: var(--space-md);
+    color: var(--color-slate);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
+    font-weight: 700;
 }
 
-.agenda-table td {
-    padding: var(--space-sm) var(--space-md);
+.agenda-timeline {
+    position: relative;
+    padding-left: 80px;
+}
+
+.agenda-timeline::before {
+    content: '';
+    position: absolute;
+    left: 68px;
+    top: 8px;
+    bottom: 8px;
+    width: 3px;
+    background: var(--color-border);
+    border-radius: 2px;
+}
+
+.timeline-block {
+    position: relative;
+    padding: var(--space-sm) 0 var(--space-sm) var(--space-md);
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.timeline-block::before {
+    content: '';
+    position: absolute;
+    left: calc(var(--space-md) * -1 + -4px);
+    top: 50%;
+    transform: translateY(-50%);
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--color-red);
+    border: 3px solid var(--color-bg);
+    box-shadow: 0 0 0 2px var(--color-red);
+    z-index: 1;
+}
+
+.timeline-block--placeholder::before {
+    background: var(--color-bg);
+    border: 3px solid var(--color-silver);
+    box-shadow: 0 0 0 2px var(--color-silver);
+}
+
+.timeline-time {
+    position: absolute;
+    left: -80px;
+    width: 56px;
+    text-align: right;
+    font-family: var(--font-primary);
     font-size: 0.9rem;
-    border-bottom: 1px solid var(--color-border);
-    vertical-align: middle;
+    font-weight: 700;
+    color: var(--color-text);
 }
 
-.agenda-table tbody tr:last-child td {
-    border-bottom: none;
+.timeline-content {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: 0.75em 1em;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-sm);
 }
 
-.agenda-table tbody tr:hover {
-    background: rgba(193, 1, 9, 0.03);
+.timeline-content strong {
+    font-size: 0.95rem;
 }
 
-.agenda-table tbody tr.hidden {
-    display: none;
+.timeline-block--placeholder .timeline-content {
+    border-style: dashed;
+    border-color: var(--color-silver);
+    background: var(--color-bg-alt);
 }
 
-/* Badges */
-.badge {
-    display: inline-block;
-    padding: 0.2em 0.7em;
+.timeline-note {
     font-size: 0.75rem;
     font-weight: 700;
+    color: var(--color-coral);
+    background: rgba(238, 90, 77, 0.1);
+    padding: 0.2em 0.7em;
     border-radius: 20px;
     white-space: nowrap;
 }
 
-.badge--all {
-    background: rgba(88, 105, 130, 0.12);
-    color: var(--color-slate);
-}
-
-.badge--sala-a {
-    background: rgba(193, 1, 9, 0.1);
-    color: var(--color-red);
-}
-
-.badge--sala-b {
-    background: rgba(225, 170, 3, 0.15);
-    color: var(--color-gold-dark);
-}
-
-.badge--taller {
-    background: rgba(69, 109, 88, 0.12);
-    color: var(--color-green);
-}
-
-/* Mobile: card-style table rows */
 @media (max-width: 599px) {
-    .agenda-table {
-        min-width: 0;
+    .agenda-timeline {
+        padding-left: 60px;
     }
 
-    .agenda-table thead {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
+    .agenda-timeline::before {
+        left: 48px;
     }
 
-    .agenda-table tbody tr {
-        display: block;
-        padding: var(--space-sm);
-        margin-bottom: var(--space-xs);
-        border-bottom: 2px solid var(--color-border);
+    .timeline-time {
+        left: -60px;
+        width: 40px;
+        font-size: 0.8rem;
     }
 
-    .agenda-table td {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0.4em 0;
-        border-bottom: none;
-        font-size: 0.85rem;
-    }
-
-    .agenda-table td::before {
-        content: attr(data-label);
-        font-weight: 700;
-        color: var(--color-text);
-        margin-right: var(--space-sm);
-        flex-shrink: 0;
+    .timeline-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.3em;
     }
 }
 
