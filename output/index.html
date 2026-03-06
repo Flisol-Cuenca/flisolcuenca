@@ -1,49 +1,1105 @@
 <!DOCTYPE html>
 <html lang="es">
-        <head>
-                        <meta charset="utf-8" />
-                        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                        <meta name="generator" content="Pelican" />
-                        <title>Flisol Cuenca</title>
-                        <link rel="stylesheet" href="/theme/css/main.css" />
-        </head>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FLISOL Cuenca 2026 – Festival Latinoamericano de Instalación de Software Libre">
+    <title>FLISOL Cuenca 2026 – Festival Latinoamericano de Instalación de Software Libre</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css">
+</head>
+<body>
 
-        <body id="index" class="home">
-                <header id="banner" class="body">
-                        <h1><a href="/">Flisol Cuenca</a></h1>
-                        <nav><ul>
-                        </ul></nav>
-                </header><!-- /#banner -->
-        <section id="content" class="body">
-                <p>This site currently has no content.</p>
-        </section>
-                <section id="extras" class="body">
-                                <div class="blogroll">
-                                        <h2>links</h2>
-                                        <ul>
-                                                        <li><a href="https://getpelican.com/">Pelican</a></li>
-                                                        <li><a href="https://www.python.org/">Python.org</a></li>
-                                                        <li><a href="https://palletsprojects.com/p/jinja/">Jinja2</a></li>
-                                                        <li><a href="#">You can modify those links in your config file</a></li>
-                                        </ul>
-                                </div><!-- /.blogroll -->
-                                <div class="social">
-                                        <h2>social</h2>
-                                        <ul>
+    <header class="site-header" id="site-header">
+        <nav class="navbar" aria-label="Navegación principal">
+            <div class="nav-container">
+                <a href="/" class="nav-brand" aria-label="Inicio">
+                    <span class="brand-text">FLISOL</span>
+                    <span class="brand-accent">Cuenca</span>
+                </a>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+                    <span class="hamburger"></span>
+                </button>
+                <ul class="nav-links" id="nav-menu" role="menubar">
+                    <li role="none"><a role="menuitem" href="#hero">Inicio</a></li>
+                    <li role="none"><a role="menuitem" href="#comunidades">Comunidades</a></li>
+                    <li role="none"><a role="menuitem" href="#inscripciones">Inscripciones</a></li>
+                    <li role="none"><a role="menuitem" href="#agenda">Agenda</a></li>
+                    <li role="none"><a role="menuitem" href="#installfest">InstallFest</a></li>
+                    <li role="none"><a role="menuitem" href="#sponsors">Sponsors</a></li>
+                    <li role="none"><a role="menuitem" href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
-                                                        <li><a href="#">You can add links in your config file</a></li>
-                                                        <li><a href="#">Another social link</a></li>
-                                        </ul>
-                                </div><!-- /.social -->
-                </section><!-- /#extras -->
+    <main>
+<style>
+/* ==========================================================================
+   HERO
+   ========================================================================== */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: calc(var(--nav-height) + var(--space-lg)) var(--space-sm) var(--space-lg);
+    background: linear-gradient(135deg, var(--color-red) 0%, var(--color-coral) 50%, var(--color-gold) 100%);
+    overflow: hidden;
+}
 
-                <footer id="contentinfo" class="body">
-                        <address id="about" class="vcard body">
-                                Proudly powered by <a rel="nofollow" href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a rel="nofollow" href="https://www.python.org/">Python</a>.
-                        </address><!-- /#about -->
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 20% 50%, rgba(193, 1, 9, 0.3) 0%, transparent 70%),
+        radial-gradient(ellipse at 80% 20%, rgba(225, 170, 3, 0.2) 0%, transparent 60%);
+    pointer-events: none;
+}
 
-                        <p>The theme is by <a rel="nofollow" href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-                </footer><!-- /#contentinfo -->
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+}
 
-        </body>
+.hero-title {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 900;
+    color: var(--color-bg);
+    margin-bottom: var(--space-sm);
+    letter-spacing: -0.03em;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+}
+
+.hero-year {
+    display: block;
+    font-size: 0.5em;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    opacity: 0.9;
+}
+
+.hero-subtitle {
+    font-size: clamp(1rem, 3vw, 1.35rem);
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: var(--space-md);
+    font-weight: 300;
+}
+
+.hero-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-sm) var(--space-lg);
+    margin-bottom: var(--space-lg);
+}
+
+.hero-detail {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 1.05rem;
+    font-weight: 500;
+}
+
+.hero-detail svg {
+    flex-shrink: 0;
+}
+</style>
+
+<!-- Hero -->
+<section id="hero" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1 class="hero-title">FLISOL Cuenca <span class="hero-year">2026</span></h1>
+        <p class="hero-subtitle">Festival Latinoamericano de Instalación de Software Libre</p>
+        <div class="hero-details">
+            <span class="hero-detail">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                16 de Mayo, 2026
+            </span>
+            <span class="hero-detail">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Cuenca, Ecuador
+            </span>
+        </div>
+        <a href="#inscripciones" class="btn btn-primary">¡Inscríbete ahora!</a>
+    </div>
+</section><style>
+/* ==========================================================================
+   COMUNIDADES
+   ========================================================================== */
+.comunidades-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+}
+
+@media (min-width: 600px) {
+    .comunidades-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 900px) {
+    .comunidades-grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+.comunidad-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: var(--space-md);
+    background: var(--color-bg);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.comunidad-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.comunidad-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--color-cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-sm);
+    border: 2px dashed var(--color-silver);
+}
+
+.comunidad-logo span {
+    font-size: 0.7rem;
+    color: var(--color-slate);
+    text-align: center;
+}
+
+.comunidad-card h3 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0;
+}
+</style>
+
+<!-- Comunidades -->
+<section id="comunidades" class="section">
+    <div class="container">
+        <h2 class="section-title">Comunidades Aliadas</h2>
+        <p class="section-description">Organizaciones y comunidades que hacen posible este evento.</p>
+        <div class="comunidades-grid">
+            <article class="comunidad-card">
+                <div class="comunidad-logo" aria-label="Logo de comunidad">
+                    <span>Comunidad 1</span>
+                </div>
+                <h3>Ecuador In Tech</h3>
+            </article>
+            <article class="comunidad-card">
+                <div class="comunidad-logo" aria-label="Logo de comunidad">
+                    <span>Comunidad 2</span>
+                </div>
+                <h3>IEEE Cuenca</h3>
+            </article>
+            <article class="comunidad-card">
+                <div class="comunidad-logo" aria-label="Logo de comunidad">
+                    <span>Comunidad 3</span>
+                </div>
+                <h3>Recicla UPS</h3>
+            </article>
+            <article class="comunidad-card">
+                <div class="comunidad-logo" aria-label="Logo de comunidad">
+                    <span>Comunidad 4</span>
+                </div>
+                <h3>Grupo Software Libre Cuenca</h3>
+            </article>
+            <article class="comunidad-card">
+                <div class="comunidad-logo" aria-label="Logo de comunidad">
+                    <span>Comunidad 5</span>
+                </div>
+                <h3>Ethereum Ecuador</h3>
+            </article>
+            <article class="comunidad-card">
+                <div class="comunidad-logo" aria-label="Logo de comunidad">
+                    <span>Comunidad 6</span>
+                </div>
+                <h3>Ubuntu Ecuador</h3>
+            </article>
+        </div>
+    </div>
+</section><style>
+/* ==========================================================================
+   INSCRIPCIONES (Cards)
+   ========================================================================== */
+.cards-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    align-items: start;
+}
+
+@media (min-width: 768px) {
+    .cards-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.inscription-card {
+    position: relative;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg) var(--space-md);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.inscription-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+}
+
+.inscription-card--featured {
+    border-color: var(--color-red);
+    border-width: 2px;
+}
+
+.card-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-red);
+    color: var(--color-bg);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.3em 1em;
+    border-radius: 20px;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.card-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: rgba(193, 1, 9, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-red);
+}
+
+.inscription-card--featured .card-icon {
+    background: rgba(193, 1, 9, 0.1);
+}
+
+.card-title {
+    font-size: 1.35rem;
+    margin: 0;
+}
+
+.card-description {
+    font-size: 0.9rem;
+    color: var(--color-slate);
+    line-height: 1.5;
+}
+
+.card-features {
+    width: 100%;
+    text-align: left;
+    padding: var(--space-sm) 0;
+    border-top: 1px solid var(--color-border);
+}
+
+.card-features li {
+    padding: 0.4em 0;
+    padding-left: 1.5em;
+    position: relative;
+    font-size: 0.9rem;
+    color: var(--color-slate);
+}
+
+.card-features li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.7em;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-green);
+}
+
+.inscription-card .btn {
+    margin-top: auto;
+    width: 100%;
+}
+</style>
+
+<!-- Inscripciones -->
+<section id="inscripciones" class="section section--alt">
+    <div class="container">
+        <h2 class="section-title">Inscripciones</h2>
+        <p class="section-description">Elige cómo quieres participar en el FLISOL Cuenca 2026.</p>
+        <div class="cards-container">
+
+            <article class="inscription-card">
+                <div class="card-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <h3 class="card-title">Asistente</h3>
+                <p class="card-description">Participa en las charlas, talleres y la InstallFest. Aprende y comparte con la comunidad de software libre.</p>
+                <ul class="card-features">
+                    <li>Acceso a todas las charlas</li>
+                    <li>Participación en talleres</li>
+                    <li>InstallFest gratuita</li>
+                    <li>Certificado de asistencia</li>
+                </ul>
+                <a href="#" class="btn btn-outline">Registrarme</a>
+            </article>
+
+            <article class="inscription-card inscription-card--featured">
+                <div class="card-badge">Convocatoria abierta</div>
+                <div class="card-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                </div>
+                <h3 class="card-title">Speaker</h3>
+                <p class="card-description">Comparte tu conocimiento con la comunidad. Presenta una charla o taller sobre software libre y tecnología abierta.</p>
+                <ul class="card-features">
+                    <li>Charla de 30-45 minutos</li>
+                    <li>Taller práctico de 1-2 horas</li>
+                    <li>Difusión en redes sociales</li>
+                    <li>Kit de speaker exclusivo</li>
+                </ul>
+                <a href="#" class="btn btn-primary">Postular charla</a>
+            </article>
+
+            <article class="inscription-card">
+                <div class="card-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <h3 class="card-title">Voluntario</h3>
+                <p class="card-description">Ayuda a organizar el evento. Los voluntarios son la columna vertebral del FLISOL.</p>
+                <ul class="card-features">
+                    <li>Logística y montaje</li>
+                    <li>Soporte en InstallFest</li>
+                    <li>Atención a asistentes</li>
+                    <li>Certificado de voluntariado</li>
+                </ul>
+                <a href="#" class="btn btn-outline">Ser voluntario</a>
+            </article>
+
+        </div>
+    </div>
+</section><style>
+/* ==========================================================================
+   AGENDA
+   ========================================================================== */
+
+/* CFP Notice */
+.agenda-cfp-notice {
+    text-align: center;
+    background: var(--color-bg);
+    border: 2px solid var(--color-red);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl) var(--space-md);
+    margin-bottom: var(--space-xl);
+}
+
+.cfp-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: rgba(193, 1, 9, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--space-md);
+    color: var(--color-red);
+}
+
+.agenda-cfp-notice h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-sm);
+    color: var(--color-red);
+}
+
+.agenda-cfp-notice p {
+    max-width: 550px;
+    margin: 0 auto var(--space-md);
+    color: var(--color-slate);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Timeline Preview */
+.agenda-preview {
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.agenda-preview-title {
+    font-size: 1.15rem;
+    text-align: center;
+    margin-bottom: var(--space-md);
+    color: var(--color-slate);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+}
+
+.agenda-timeline {
+    position: relative;
+    padding-left: 80px;
+}
+
+.agenda-timeline::before {
+    content: '';
+    position: absolute;
+    left: 68px;
+    top: 8px;
+    bottom: 8px;
+    width: 3px;
+    background: var(--color-border);
+    border-radius: 2px;
+}
+
+.timeline-block {
+    position: relative;
+    padding: var(--space-sm) 0 var(--space-sm) var(--space-md);
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.timeline-block::before {
+    content: '';
+    position: absolute;
+    left: calc(var(--space-md) * -1 + -4px);
+    top: 50%;
+    transform: translateY(-50%);
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--color-red);
+    border: 3px solid var(--color-bg);
+    box-shadow: 0 0 0 2px var(--color-red);
+    z-index: 1;
+}
+
+.timeline-block--placeholder::before {
+    background: var(--color-bg);
+    border: 3px solid var(--color-silver);
+    box-shadow: 0 0 0 2px var(--color-silver);
+}
+
+.timeline-time {
+    position: absolute;
+    left: -80px;
+    width: 56px;
+    text-align: right;
+    font-family: var(--font-primary);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.timeline-content {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: 0.75em 1em;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-sm);
+}
+
+.timeline-content strong {
+    font-size: 0.95rem;
+}
+
+.timeline-block--placeholder .timeline-content {
+    border-style: dashed;
+    border-color: var(--color-silver);
+    background: var(--color-bg-alt);
+}
+
+.timeline-note {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-coral);
+    background: rgba(238, 90, 77, 0.1);
+    padding: 0.2em 0.7em;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+@media (max-width: 599px) {
+    .agenda-timeline {
+        padding-left: 60px;
+    }
+
+    .agenda-timeline::before {
+        left: 48px;
+    }
+
+    .timeline-time {
+        left: -60px;
+        width: 40px;
+        font-size: 0.8rem;
+    }
+
+    .timeline-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.3em;
+    }
+}
+</style>
+
+<!-- Agenda -->
+<section id="agenda" class="section">
+    <div class="container">
+        <h2 class="section-title">Agenda</h2>
+        <p class="section-description">Programa de actividades del FLISOL Cuenca 2026.</p>
+
+        <div class="agenda-cfp-notice">
+            <div class="cfp-icon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            </div>
+            <h3>¡Convocatoria de charlas abierta!</h3>
+            <p>Estamos armando la agenda con las mejores propuestas de la comunidad. La programación definitiva se publicará una vez finalizado el proceso de selección.</p>
+            <a href="#inscripciones" class="btn btn-primary">Postula tu charla o taller</a>
+        </div>
+
+        <div class="agenda-preview">
+            <h3 class="agenda-preview-title">Estructura del día</h3>
+            <div class="agenda-timeline">
+                <div class="timeline-block">
+                    <span class="timeline-time">09:00</span>
+                    <div class="timeline-content">
+                        <strong>Registro y acreditación</strong>
+                    </div>
+                </div>
+                <div class="timeline-block">
+                    <span class="timeline-time">09:30</span>
+                    <div class="timeline-content">
+                        <strong>Inauguración</strong>
+                    </div>
+                </div>
+                <div class="timeline-block timeline-block--placeholder">
+                    <span class="timeline-time">10:00</span>
+                    <div class="timeline-content">
+                        <strong>Charlas y talleres — Bloque mañana</strong>
+                        <span class="timeline-note">Pendiente CFP</span>
+                    </div>
+                </div>
+                <div class="timeline-block">
+                    <span class="timeline-time">12:00</span>
+                    <div class="timeline-content">
+                        <strong>Almuerzo y networking</strong>
+                    </div>
+                </div>
+                <div class="timeline-block timeline-block--placeholder">
+                    <span class="timeline-time">13:30</span>
+                    <div class="timeline-content">
+                        <strong>Charlas y talleres — Bloque tarde</strong>
+                        <span class="timeline-note">Pendiente CFP</span>
+                    </div>
+                </div>
+                <div class="timeline-block">
+                    <span class="timeline-time">17:00</span>
+                    <div class="timeline-content">
+                        <strong>Cierre y sorteos</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><style>
+/* ==========================================================================
+   INSTALLFEST
+   ========================================================================== */
+.installfest-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+}
+
+@media (min-width: 768px) {
+    .installfest-grid {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+    }
+}
+
+.installfest-step {
+    display: flex;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+}
+
+.step-number {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--color-red);
+    color: var(--color-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+.step-content h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.3em;
+}
+
+.step-content p {
+    font-size: 0.9rem;
+    color: var(--color-slate);
+}
+
+.installfest-distros h3 {
+    font-size: 1.15rem;
+    margin-bottom: var(--space-md);
+    text-align: center;
+}
+
+.distros-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-sm);
+}
+
+.distro-item {
+    text-align: center;
+}
+
+.distro-logo {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--space-xs);
+    border-radius: var(--radius-md);
+    background: var(--color-bg);
+    border: 2px dashed var(--color-silver);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color var(--transition);
+}
+
+.distro-logo:hover {
+    border-color: var(--color-green);
+}
+
+.distro-logo span {
+    font-size: 0.75rem;
+    color: var(--color-slate);
+    font-weight: 600;
+}
+</style>
+
+<!-- InstallFest -->
+<section id="installfest" class="section section--alt">
+    <div class="container">
+        <h2 class="section-title">InstallFest</h2>
+        <p class="section-description">¡Trae tu computadora y te ayudamos a instalar Linux!</p>
+        <div class="installfest-grid">
+            <div class="installfest-info">
+                <div class="installfest-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Respalda tu información</h3>
+                        <p>Antes de venir, guarda una copia de tus archivos importantes en un disco externo o en la nube.</p>
+                    </div>
+                </div>
+                <div class="installfest-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Trae tu equipo</h3>
+                        <p>Laptop, cargador y, si tienes, un USB de al menos 8 GB. Nosotros nos encargamos del resto.</p>
+                    </div>
+                </div>
+                <div class="installfest-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Elige tu distribución</h3>
+                        <p>Nuestros voluntarios te ayudarán a elegir la distribución de Linux ideal para ti y tu equipo.</p>
+                    </div>
+                </div>
+                <div class="installfest-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>¡Listo!</h3>
+                        <p>En menos de una hora tendrás un sistema operativo libre, seguro y funcional.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="installfest-distros">
+                <h3>Distribuciones disponibles</h3>
+                <div class="distros-grid">
+                    <div class="distro-item" aria-label="Ubuntu">
+                        <div class="distro-logo"><span>Ubuntu</span></div>
+                    </div>
+                    <div class="distro-item" aria-label="Fedora">
+                        <div class="distro-logo"><span>Fedora</span></div>
+                    </div>
+                    <div class="distro-item" aria-label="Linux Mint">
+                        <div class="distro-logo"><span>Mint</span></div>
+                    </div>
+                    <div class="distro-item" aria-label="Debian">
+                        <div class="distro-logo"><span>Debian</span></div>
+                    </div>
+                    <div class="distro-item" aria-label="openSUSE">
+                        <div class="distro-logo"><span>openSUSE</span></div>
+                    </div>
+                    <div class="distro-item" aria-label="Manjaro">
+                        <div class="distro-logo"><span>Manjaro</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><style>
+/* ==========================================================================
+   SPONSORS
+   ========================================================================== */
+.sponsors-level {
+    margin-bottom: var(--space-xl);
+}
+
+.sponsors-level:last-child {
+    margin-bottom: 0;
+}
+
+.sponsors-tier {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    font-size: 1.15rem;
+    margin-bottom: var(--space-md);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.sponsors-tier--sede  { color: var(--color-red); }
+.sponsors-tier--gold  { color: var(--color-gold-dark); }
+.sponsors-tier--bronze{ color: var(--color-coral); }
+
+.sponsors-grid {
+    display: grid;
+    gap: var(--space-md);
+    justify-items: center;
+}
+
+.sponsors-grid--sede {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.sponsors-grid--gold {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.sponsors-grid--bronze {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.sponsor-card {
+    width: 100%;
+    text-align: center;
+    padding: var(--space-md);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.sponsor-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.sponsor-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--space-sm);
+    border: 2px dashed var(--color-silver);
+    border-radius: var(--radius-sm);
+    background: var(--color-cream);
+}
+
+.sponsor-card--sede   .sponsor-logo { width: 240px; height: 120px; }
+.sponsor-card--gold   .sponsor-logo { width: 180px; height: 90px; }
+.sponsor-card--bronze .sponsor-logo { width: 140px; height: 70px; }
+
+.sponsor-logo span {
+    font-size: 0.8rem;
+    color: var(--color-slate);
+}
+
+.sponsor-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text);
+}
+</style>
+
+<!-- Sponsors -->
+<section id="sponsors" class="section">
+    <div class="container">
+        <h2 class="section-title">Sponsors</h2>
+        <p class="section-description">Gracias a quienes hacen posible este evento.</p>
+
+        <div class="sponsors-level">
+            <h3 class="sponsors-tier sponsors-tier--sede">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                Sede
+            </h3>
+            <div class="sponsors-grid sponsors-grid--sede">
+                <article class="sponsor-card sponsor-card--sede">
+                    <div class="sponsor-logo" aria-label="Logo de sponsor sede">
+                        <span>Sede principal</span>
+                    </div>
+                    <p class="sponsor-name">Universidad de Cuenca</p>
+                </article>
+            </div>
+        </div>
+
+        <div class="sponsors-level">
+            <h3 class="sponsors-tier sponsors-tier--gold">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                Gold
+            </h3>
+            <div class="sponsors-grid sponsors-grid--gold">
+                <article class="sponsor-card sponsor-card--gold">
+                    <div class="sponsor-logo" aria-label="Logo de sponsor gold">
+                        <span>Sponsor Gold</span>
+                    </div>
+                    <p class="sponsor-name">Empresa Gold 1</p>
+                </article>
+                <article class="sponsor-card sponsor-card--gold">
+                    <div class="sponsor-logo" aria-label="Logo de sponsor gold">
+                        <span>Sponsor Gold</span>
+                    </div>
+                    <p class="sponsor-name">Empresa Gold 2</p>
+                </article>
+            </div>
+        </div>
+
+        <div class="sponsors-level">
+            <h3 class="sponsors-tier sponsors-tier--bronze">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+                Bronze
+            </h3>
+            <div class="sponsors-grid sponsors-grid--bronze">
+                <article class="sponsor-card sponsor-card--bronze">
+                    <div class="sponsor-logo" aria-label="Logo de sponsor bronze">
+                        <span>Sponsor</span>
+                    </div>
+                    <p class="sponsor-name">Empresa Bronze 1</p>
+                </article>
+                <article class="sponsor-card sponsor-card--bronze">
+                    <div class="sponsor-logo" aria-label="Logo de sponsor bronze">
+                        <span>Sponsor</span>
+                    </div>
+                    <p class="sponsor-name">Empresa Bronze 2</p>
+                </article>
+                <article class="sponsor-card sponsor-card--bronze">
+                    <div class="sponsor-logo" aria-label="Logo de sponsor bronze">
+                        <span>Sponsor</span>
+                    </div>
+                    <p class="sponsor-name">Empresa Bronze 3</p>
+                </article>
+            </div>
+        </div>
+    </div>
+</section><style>
+/* ==========================================================================
+   CONTACTO
+   ========================================================================== */
+.contacto-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+}
+
+@media (min-width: 768px) {
+    .contacto-grid {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+    }
+}
+
+.contacto-item {
+    display: flex;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    background: var(--color-bg);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    margin-bottom: var(--space-sm);
+}
+
+.contacto-item svg {
+    flex-shrink: 0;
+    color: var(--color-red);
+    margin-top: 2px;
+}
+
+.contacto-item h4 {
+    font-size: 0.9rem;
+    margin-bottom: 0.25em;
+}
+
+.contacto-item p,
+.contacto-item a {
+    font-size: 0.9rem;
+    color: var(--color-slate);
+}
+
+.contacto-item a:hover {
+    color: var(--color-red);
+}
+
+.map-placeholder {
+    width: 100%;
+    min-height: 300px;
+    background: var(--color-cream);
+    border: 2px dashed var(--color-silver);
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+    color: var(--color-slate);
+}
+
+.map-placeholder svg {
+    opacity: 0.5;
+}
+
+.map-placeholder p {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.map-placeholder span {
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+</style>
+
+<!-- Contacto -->
+<section id="contacto" class="section section--alt">
+    <div class="container">
+        <h2 class="section-title">Contacto</h2>
+        <p class="section-description">¿Tienes preguntas? ¡Escríbenos!</p>
+        <div class="contacto-grid">
+            <div class="contacto-info">
+                <div class="contacto-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    <div>
+                        <h4>Email</h4>
+                        <a href="mailto:contacto@flisolcuenca.org">contacto@flisolcuenca.org</a>
+                    </div>
+                </div>
+                <div class="contacto-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <div>
+                        <h4>Ubicación</h4>
+                        <p>Universidad de Cuenca<br>Av. 12 de Abril, Cuenca, Ecuador</p>
+                    </div>
+                </div>
+                <div class="contacto-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                    <div>
+                        <h4>Telegram</h4>
+                        <a href="#">@FLISOLCuenca</a>
+                    </div>
+                </div>
+            </div>
+            <div class="contacto-map">
+                <div class="map-placeholder" aria-label="Mapa de ubicación del evento">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <p>Mapa interactivo</p>
+                    <span>Universidad de Cuenca</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <p class="footer-logo">
+                        <span class="brand-text">FLISOL</span>
+                        <span class="brand-accent">Cuenca</span>
+                    </p>
+                    <p class="footer-tagline">Festival Latinoamericano de Instalación de Software Libre</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="#comunidades">Comunidades</a></li>
+                        <li><a href="#inscripciones">Inscripciones</a></li>
+                        <li><a href="#agenda">Agenda</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h4>Síguenos</h4>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Instagram" class="social-link">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        </a>
+                        <a href="#" aria-label="Telegram" class="social-link">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 FLISOL Cuenca. Software Libre para todos.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/theme/js/main.js"></script>
+</body>
 </html>

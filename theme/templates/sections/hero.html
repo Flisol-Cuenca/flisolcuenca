@@ -1,0 +1,96 @@
+<style>
+/* ==========================================================================
+   HERO
+   ========================================================================== */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: calc(var(--nav-height) + var(--space-lg)) var(--space-sm) var(--space-lg);
+    background: linear-gradient(135deg, var(--color-red) 0%, var(--color-coral) 50%, var(--color-gold) 100%);
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 20% 50%, rgba(193, 1, 9, 0.3) 0%, transparent 70%),
+        radial-gradient(ellipse at 80% 20%, rgba(225, 170, 3, 0.2) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 900;
+    color: var(--color-bg);
+    margin-bottom: var(--space-sm);
+    letter-spacing: -0.03em;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+}
+
+.hero-year {
+    display: block;
+    font-size: 0.5em;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    opacity: 0.9;
+}
+
+.hero-subtitle {
+    font-size: clamp(1rem, 3vw, 1.35rem);
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: var(--space-md);
+    font-weight: 300;
+}
+
+.hero-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-sm) var(--space-lg);
+    margin-bottom: var(--space-lg);
+}
+
+.hero-detail {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 1.05rem;
+    font-weight: 500;
+}
+
+.hero-detail svg {
+    flex-shrink: 0;
+}
+</style>
+
+<!-- Hero -->
+<section id="hero" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1 class="hero-title">FLISOL Cuenca <span class="hero-year">2026</span></h1>
+        <p class="hero-subtitle">Festival Latinoamericano de Instalación de Software Libre</p>
+        <div class="hero-details">
+            <span class="hero-detail">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                16 de Mayo, 2026
+            </span>
+            <span class="hero-detail">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Cuenca, Ecuador
+            </span>
+        </div>
+        <a href="#inscripciones" class="btn btn-primary">¡Inscríbete ahora!</a>
+    </div>
+</section>
