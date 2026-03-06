@@ -1,0 +1,162 @@
+<style>
+/* ==========================================================================
+   SPONSORS
+   ========================================================================== */
+.sponsors-level {
+    margin-bottom: var(--space-xl);
+}
+
+.sponsors-level:last-child {
+    margin-bottom: 0;
+}
+
+.sponsors-tier {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    font-size: 1.15rem;
+    margin-bottom: var(--space-md);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.sponsors-tier--sede  { color: var(--color-red); }
+.sponsors-tier--gold  { color: var(--color-gold-dark); }
+.sponsors-tier--bronze{ color: var(--color-coral); }
+
+.sponsors-grid {
+    display: grid;
+    gap: var(--space-md);
+    justify-items: center;
+}
+
+.sponsors-grid--sede {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.sponsors-grid--gold {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.sponsors-grid--bronze {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.sponsor-card {
+    width: 100%;
+    text-align: center;
+    padding: var(--space-md);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.sponsor-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.sponsor-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--space-sm);
+    border: 2px dashed var(--color-silver);
+    border-radius: var(--radius-sm);
+    background: var(--color-cream);
+}
+
+.sponsor-card--sede   .sponsor-logo { width: 240px; height: 120px; }
+.sponsor-card--gold   .sponsor-logo { width: 180px; height: 90px; }
+.sponsor-card--bronze .sponsor-logo { width: 140px; height: 70px; }
+
+.sponsor-logo span {
+    font-size: 0.8rem;
+    color: var(--color-slate);
+}
+
+.sponsor-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text);
+}
+</style>
+
+<!-- Sponsors -->
+<section id="sponsors" class="section">
+    <div class="container">
+        <h2 class="section-title">Sponsors</h2>
+        <p class="section-description">Gracias a quienes hacen posible este evento.</p>
+
+        <div class="sponsors-level">
+            <h3 class="sponsors-tier sponsors-tier--sede">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                Sede
+            </h3>
+            <div class="sponsors-grid sponsors-grid--sede">
+                <article class="sponsor-card sponsor-card--sede">
+                    <div class="sponsor-logo" aria-label="Logo de sponsor sede">
+                        <span>Sede principal</span>
+                    </div>
+                    <p class="sponsor-name">Universidad de Cuenca</p>
+                </article>
+            </div>
+        </div>
+
+        <div class="sponsors-level">
+            <h3 class="sponsors-tier sponsors-tier--gold">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                Gold
+            </h3>
+            <div class="sponsors-grid sponsors-grid--gold">
+                <article class="sponsor-card sponsor-card--gold">
+                    <div class="sponsor-logo" aria-label="Logo de sponsor gold">
+                        <span>Sponsor Gold</span>
+                    </div>
+                    <p class="sponsor-name">Empresa Gold 1</p>
+                </article>
+                <article class="sponsor-card sponsor-card--gold">
+                    <div class="sponsor-logo" aria-label="Logo de sponsor gold">
+                        <span>Sponsor Gold</span>
+                    </div>
+                    <p class="sponsor-name">Empresa Gold 2</p>
+                </article>
+            </div>
+        </div>
+
+        <div class="sponsors-level">
+            <h3 class="sponsors-tier sponsors-tier--bronze">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+                Bronze
+            </h3>
+            <div class="sponsors-grid sponsors-grid--bronze">
+                <article class="sponsor-card sponsor-card--bronze">
+                    <div class="sponsor-logo" aria-label="Logo de sponsor bronze">
+                        <span>Sponsor</span>
+                    </div>
+                    <p class="sponsor-name">Empresa Bronze 1</p>
+                </article>
+                <article class="sponsor-card sponsor-card--bronze">
+                    <div class="sponsor-logo" aria-label="Logo de sponsor bronze">
+                        <span>Sponsor</span>
+                    </div>
+                    <p class="sponsor-name">Empresa Bronze 2</p>
+                </article>
+                <article class="sponsor-card sponsor-card--bronze">
+                    <div class="sponsor-logo" aria-label="Logo de sponsor bronze">
+                        <span>Sponsor</span>
+                    </div>
+                    <p class="sponsor-name">Empresa Bronze 3</p>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>

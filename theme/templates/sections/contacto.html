@@ -1,0 +1,116 @@
+<style>
+/* ==========================================================================
+   CONTACTO
+   ========================================================================== */
+.contacto-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+}
+
+@media (min-width: 768px) {
+    .contacto-grid {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+    }
+}
+
+.contacto-item {
+    display: flex;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    background: var(--color-bg);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    margin-bottom: var(--space-sm);
+}
+
+.contacto-item svg {
+    flex-shrink: 0;
+    color: var(--color-red);
+    margin-top: 2px;
+}
+
+.contacto-item h4 {
+    font-size: 0.9rem;
+    margin-bottom: 0.25em;
+}
+
+.contacto-item p,
+.contacto-item a {
+    font-size: 0.9rem;
+    color: var(--color-slate);
+}
+
+.contacto-item a:hover {
+    color: var(--color-red);
+}
+
+.map-placeholder {
+    width: 100%;
+    min-height: 300px;
+    background: var(--color-cream);
+    border: 2px dashed var(--color-silver);
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+    color: var(--color-slate);
+}
+
+.map-placeholder svg {
+    opacity: 0.5;
+}
+
+.map-placeholder p {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.map-placeholder span {
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+</style>
+
+<!-- Contacto -->
+<section id="contacto" class="section section--alt">
+    <div class="container">
+        <h2 class="section-title">Contacto</h2>
+        <p class="section-description">¿Tienes preguntas? ¡Escríbenos!</p>
+        <div class="contacto-grid">
+            <div class="contacto-info">
+                <div class="contacto-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    <div>
+                        <h4>Email</h4>
+                        <a href="mailto:contacto@flisolcuenca.org">contacto@flisolcuenca.org</a>
+                    </div>
+                </div>
+                <div class="contacto-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <div>
+                        <h4>Ubicación</h4>
+                        <p>Universidad de Cuenca<br>Av. 12 de Abril, Cuenca, Ecuador</p>
+                    </div>
+                </div>
+                <div class="contacto-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                    <div>
+                        <h4>Telegram</h4>
+                        <a href="#">@FLISOLCuenca</a>
+                    </div>
+                </div>
+            </div>
+            <div class="contacto-map">
+                <div class="map-placeholder" aria-label="Mapa de ubicación del evento">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <p>Mapa interactivo</p>
+                    <span>Universidad de Cuenca</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

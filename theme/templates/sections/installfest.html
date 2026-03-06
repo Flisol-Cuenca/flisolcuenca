@@ -1,0 +1,149 @@
+<style>
+/* ==========================================================================
+   INSTALLFEST
+   ========================================================================== */
+.installfest-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+}
+
+@media (min-width: 768px) {
+    .installfest-grid {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+    }
+}
+
+.installfest-step {
+    display: flex;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+}
+
+.step-number {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--color-red);
+    color: var(--color-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+.step-content h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.3em;
+}
+
+.step-content p {
+    font-size: 0.9rem;
+    color: var(--color-slate);
+}
+
+.installfest-distros h3 {
+    font-size: 1.15rem;
+    margin-bottom: var(--space-md);
+    text-align: center;
+}
+
+.distros-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-sm);
+}
+
+.distro-item {
+    text-align: center;
+}
+
+.distro-logo {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--space-xs);
+    border-radius: var(--radius-md);
+    background: var(--color-bg);
+    border: 2px dashed var(--color-silver);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color var(--transition);
+}
+
+.distro-logo:hover {
+    border-color: var(--color-green);
+}
+
+.distro-logo span {
+    font-size: 0.75rem;
+    color: var(--color-slate);
+    font-weight: 600;
+}
+</style>
+
+<!-- InstallFest -->
+<section id="installfest" class="section section--alt">
+    <div class="container">
+        <h2 class="section-title">InstallFest</h2>
+        <p class="section-description">¡Trae tu computadora y te ayudamos a instalar Linux!</p>
+        <div class="installfest-grid">
+            <div class="installfest-info">
+                <div class="installfest-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Respalda tu información</h3>
+                        <p>Antes de venir, guarda una copia de tus archivos importantes en un disco externo o en la nube.</p>
+                    </div>
+                </div>
+                <div class="installfest-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Trae tu equipo</h3>
+                        <p>Laptop, cargador y, si tienes, un USB de al menos 8 GB. Nosotros nos encargamos del resto.</p>
+                    </div>
+                </div>
+                <div class="installfest-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Elige tu distribución</h3>
+                        <p>Nuestros voluntarios te ayudarán a elegir la distribución de Linux ideal para ti y tu equipo.</p>
+                    </div>
+                </div>
+                <div class="installfest-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>¡Listo!</h3>
+                        <p>En menos de una hora tendrás un sistema operativo libre, seguro y funcional.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="installfest-distros">
+                <h3>Distribuciones disponibles</h3>
+                <div class="distros-grid">
+                    <div class="distro-item" aria-label="Ubuntu">
+                        <div class="distro-logo"><span>Ubuntu</span></div>
+                    </div>
+                    <div class="distro-item" aria-label="Fedora">
+                        <div class="distro-logo"><span>Fedora</span></div>
+                    </div>
+                    <div class="distro-item" aria-label="Linux Mint">
+                        <div class="distro-logo"><span>Mint</span></div>
+                    </div>
+                    <div class="distro-item" aria-label="Debian">
+                        <div class="distro-logo"><span>Debian</span></div>
+                    </div>
+                    <div class="distro-item" aria-label="openSUSE">
+                        <div class="distro-logo"><span>openSUSE</span></div>
+                    </div>
+                    <div class="distro-item" aria-label="Manjaro">
+                        <div class="distro-logo"><span>Manjaro</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

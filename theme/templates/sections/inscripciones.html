@@ -1,0 +1,171 @@
+<style>
+/* ==========================================================================
+   INSCRIPCIONES (Cards)
+   ========================================================================== */
+.cards-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    align-items: start;
+}
+
+@media (min-width: 768px) {
+    .cards-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.inscription-card {
+    position: relative;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg) var(--space-md);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.inscription-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+}
+
+.inscription-card--featured {
+    border-color: var(--color-red);
+    border-width: 2px;
+}
+
+.card-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-red);
+    color: var(--color-bg);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.3em 1em;
+    border-radius: 20px;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.card-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: rgba(193, 1, 9, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-red);
+}
+
+.inscription-card--featured .card-icon {
+    background: rgba(193, 1, 9, 0.1);
+}
+
+.card-title {
+    font-size: 1.35rem;
+    margin: 0;
+}
+
+.card-description {
+    font-size: 0.9rem;
+    color: var(--color-slate);
+    line-height: 1.5;
+}
+
+.card-features {
+    width: 100%;
+    text-align: left;
+    padding: var(--space-sm) 0;
+    border-top: 1px solid var(--color-border);
+}
+
+.card-features li {
+    padding: 0.4em 0;
+    padding-left: 1.5em;
+    position: relative;
+    font-size: 0.9rem;
+    color: var(--color-slate);
+}
+
+.card-features li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.7em;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-green);
+}
+
+.inscription-card .btn {
+    margin-top: auto;
+    width: 100%;
+}
+</style>
+
+<!-- Inscripciones -->
+<section id="inscripciones" class="section section--alt">
+    <div class="container">
+        <h2 class="section-title">Inscripciones</h2>
+        <p class="section-description">Elige cómo quieres participar en el FLISOL Cuenca 2026.</p>
+        <div class="cards-container">
+
+            <article class="inscription-card">
+                <div class="card-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <h3 class="card-title">Asistente</h3>
+                <p class="card-description">Participa en las charlas, talleres y la InstallFest. Aprende y comparte con la comunidad de software libre.</p>
+                <ul class="card-features">
+                    <li>Acceso a todas las charlas</li>
+                    <li>Participación en talleres</li>
+                    <li>InstallFest gratuita</li>
+                    <li>Certificado de asistencia</li>
+                </ul>
+                <a href="#" class="btn btn-outline">Registrarme</a>
+            </article>
+
+            <article class="inscription-card inscription-card--featured">
+                <div class="card-badge">Convocatoria abierta</div>
+                <div class="card-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                </div>
+                <h3 class="card-title">Speaker</h3>
+                <p class="card-description">Comparte tu conocimiento con la comunidad. Presenta una charla o taller sobre software libre y tecnología abierta.</p>
+                <ul class="card-features">
+                    <li>Charla de 30-45 minutos</li>
+                    <li>Taller práctico de 1-2 horas</li>
+                    <li>Difusión en redes sociales</li>
+                    <li>Kit de speaker exclusivo</li>
+                </ul>
+                <a href="#" class="btn btn-primary">Postular charla</a>
+            </article>
+
+            <article class="inscription-card">
+                <div class="card-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <h3 class="card-title">Voluntario</h3>
+                <p class="card-description">Ayuda a organizar el evento. Los voluntarios son la columna vertebral del FLISOL.</p>
+                <ul class="card-features">
+                    <li>Logística y montaje</li>
+                    <li>Soporte en InstallFest</li>
+                    <li>Atención a asistentes</li>
+                    <li>Certificado de voluntariado</li>
+                </ul>
+                <a href="#" class="btn btn-outline">Ser voluntario</a>
+            </article>
+
+        </div>
+    </div>
+</section>
