@@ -1,0 +1,83 @@
+{# ============================================================================
+   SEO META — motor centralizado de metadatos
+   Variables requeridas en pelicanconf.py:
+     SITENAME, SEO_DESCRIPTION, SEO_KEYWORDS, OG_IMAGE,
+     EVENT_NAME, EVENT_DATE_START, EVENT_DATE_END,
+     EVENT_LOCATION, EVENT_CITY, EVENT_COUNTRY, EVENT_STATUS,
+     EVENT_ATTENDANCE, ORGANIZER_NAME, ORGANIZER_EMAIL, TWITTER_HANDLE
+   ============================================================================ #}
+
+{% set base_url = SITEURL if SITEURL else "https://flisolcuenca.github.io" %}
+
+{# ── Meta básicos ─────────────────────────────────────────────────────────── #}
+<meta name="description" content="{{ SEO_DESCRIPTION }}">
+<meta name="keywords"    content="{{ SEO_KEYWORDS }}">
+<meta name="author"      content="{{ ORGANIZER_NAME }}">
+<meta name="robots"      content="index, follow">
+
+{# ── Canonical + hreflang ─────────────────────────────────────────────────── #}
+<link rel="canonical"                          href="{{ base_url }}/">
+<link rel="alternate" hreflang="es"            href="{{ base_url }}/">
+<link rel="alternate" hreflang="x-default"     href="{{ base_url }}/">
+
+{# ── Open Graph ───────────────────────────────────────────────────────────── #}
+<meta property="og:type"        content="website">
+<meta property="og:site_name"   content="{{ SITENAME }}">
+<meta property="og:title"       content="{{ SITENAME }}">
+<meta property="og:description" content="{{ SEO_DESCRIPTION }}">
+<meta property="og:url"         content="{{ base_url }}/">
+<meta property="og:locale"      content="es_EC">
+<meta property="og:image"       content="{{ base_url }}{{ OG_IMAGE }}">
+<meta property="og:image:width"  content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt"    content="{{ EVENT_NAME }} — {{ EVENT_CITY }}, Ecuador">
+
+{# ── Twitter Card ─────────────────────────────────────────────────────────── #}
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:site"        content="{{ TWITTER_HANDLE }}">
+<meta name="twitter:creator"     content="{{ TWITTER_HANDLE }}">
+<meta name="twitter:title"       content="{{ SITENAME }}">
+<meta name="twitter:description" content="{{ SEO_DESCRIPTION }}">
+<meta name="twitter:image"       content="{{ base_url }}{{ OG_IMAGE }}">
+<meta name="twitter:image:alt"   content="{{ EVENT_NAME }} — {{ EVENT_CITY }}, Ecuador">
+
+{# ── Schema.org — Event (JSON-LD) ─────────────────────────────────────────── #}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "{{ EVENT_NAME }}",
+  "description": "{{ SEO_DESCRIPTION }}",
+  "url": "{{ base_url }}/",
+  "startDate": "{{ EVENT_DATE_START }}",
+  "endDate": "{{ EVENT_DATE_END }}",
+  "eventStatus": "https://schema.org/{{ EVENT_STATUS }}",
+  "eventAttendanceMode": "https://schema.org/{{ EVENT_ATTENDANCE }}",
+  "image": "{{ base_url }}{{ OG_IMAGE }}",
+  "inLanguage": "es",
+  "isAccessibleForFree": true,
+  "location": {
+    "@type": "Place",
+    "name": "Universidad Politecnica Salesiana de Cuenca",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. 12 de Abril",
+      "addressLocality": "{{ EVENT_CITY }}",
+      "addressCountry": "{{ EVENT_COUNTRY }}"
+    }
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": "{{ ORGANIZER_NAME }}",
+    "url": "{{ base_url }}/",
+    "email": "{{ ORGANIZER_EMAIL }}"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock",
+    "url": "{{ base_url }}/#inscripciones"
+  }
+}
+</script>
