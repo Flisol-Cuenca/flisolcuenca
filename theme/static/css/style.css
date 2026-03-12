@@ -69,7 +69,7 @@ html {
 }
 
 body {
-    font-family: var(--font-secondary);
+    font-family: var(--font-primary);
     font-size: 1rem;
     line-height: 1.6;
     color: var(--color-text);
@@ -155,16 +155,23 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-brand {
     display: flex;
-    gap: 0.3em;
-    font-family: var(--font-primary);
-    font-size: 1.5rem;
-    font-weight: 700;
+    align-items: center;
     text-decoration: none;
-    letter-spacing: -0.02em;
+}
+
+.nav-brand-logo {
+    width: auto;
+    height: 64px;
 }
 
 .brand-text  { color: var(--color-red); }
 .brand-accent{ color: var(--color-slate); }
+
+@media (min-width: 768px) {
+    .nav-brand-logo {
+        height: 64px;
+    }
+}
 
 /* Hamburger */
 .nav-toggle {
@@ -386,15 +393,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-logo {
-    display: flex;
-    gap: 0.3em;
-    font-size: 1.5rem;
-    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
     margin-bottom: var(--space-xs);
 }
 
-.footer-logo .brand-text  { color: var(--color-coral); }
-.footer-logo .brand-accent{ color: var(--color-silver); }
+.footer-logo-image {
+    width: auto;
+    height: 100px;
+}
 
 .footer-tagline {
     font-size: 0.9rem;
