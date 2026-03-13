@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://flisolcuenca.github.io/sitemap.xml
