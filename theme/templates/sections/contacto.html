@@ -31,7 +31,7 @@
     margin-top: 2px;
 }
 
-.contacto-item h3 {
+.contacto-item h4 {
     font-size: 0.9rem;
     margin-bottom: 0.25em;
 }
@@ -46,69 +46,116 @@
     color: var(--color-red);
 }
 
-.map-placeholder {
+.map-wrapper {
+    position: relative;
     width: 100%;
-    min-height: 300px;
-    background: var(--color-cream);
-    border: 2px dashed var(--color-silver);
+    padding-bottom: 75%;
     border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    background: var(--color-cream);
+    cursor: pointer;
+}
+
+.map-wrapper iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.map-facade {
+    position: absolute;
+    inset: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: var(--space-xs);
-    color: var(--color-slate);
+    color: var(--color-text);
+    transition: background var(--transition);
 }
 
-.map-placeholder svg {
-    opacity: 0.5;
+.map-wrapper:hover .map-facade {
+    background: rgba(0, 0, 0, 0.03);
 }
 
-.map-placeholder p {
-    font-weight: 600;
-    font-size: 1rem;
+.map-facade-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.6em 1.4em;
+    background: var(--color-red);
+    color: var(--color-bg);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: 0.95rem;
+    box-shadow: var(--shadow-md);
+    transition: background var(--transition), transform var(--transition);
 }
 
-.map-placeholder span {
+.map-wrapper:hover .map-facade-btn {
+    background: var(--color-red-dark);
+    transform: translateY(-1px);
+}
+
+.map-facade svg {
+    opacity: 0.4;
+}
+
+.map-facade p {
     font-size: 0.85rem;
-    opacity: 0.7;
+    color: var(--color-slate);
+    margin-top: var(--space-xs);
+}
+
+@media (min-width: 768px) {
+    .map-wrapper {
+        padding-bottom: 56.25%;
+    }
 }
 </style>
 
 <!-- Contacto -->
-<section id="contacto" class="section section--alt" aria-labelledby="contacto-title">
+<section id="contacto" class="section section--alt">
     <div class="container">
-        <h2 id="contacto-title" class="section-title">Contacto</h2>
+        <h2 class="section-title">Contacto</h2>
         <p class="section-description">¿Tienes preguntas? ¡Escríbenos!</p>
         <div class="contacto-grid">
             <div class="contacto-info">
                 <div class="contacto-item">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                     <div>
-                        <h3>Email</h3>
+                        <h4>Email</h4>
                         <a href="mailto:contacto@flisolcuenca.org">contacto@flisolcuenca.org</a>
                     </div>
                 </div>
                 <div class="contacto-item">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                     <div>
-                        <h3>Ubicación</h3>
-                        <p>Universidad de Cuenca<br>Av. 12 de Abril, Cuenca, Ecuador</p>
+                        <h4>Ubicación</h4>
+                        <p>Universidad Politécnica Salesiana<br>Cuenca, Ecuador</p>
                     </div>
                 </div>
                 <div class="contacto-item">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
                     <div>
-                        <h3>Telegram</h3>
+                        <h4>Telegram</h4>
                         <a href="#">@FLISOLCuenca</a>
                     </div>
                 </div>
             </div>
             <div class="contacto-map">
-                <div class="map-placeholder" aria-label="Mapa de ubicación del evento">
-                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                    <p>Mapa interactivo</p>
-                    <span>Universidad de Cuenca</span>
+                <div class="map-wrapper" aria-label="Mapa de ubicación del evento"
+                     data-map-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.7567715762325!2d-78.99184332408703!3d-2.8863480970901696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91cd1826d90c7e47%3A0x8eb47b6b0138cb74!2sUniversidad%20Polit%C3%A9cnica%20Salesiana%20del%20Ecuador!5e0!3m2!1ses-419!2sco!4v1773121715371!5m2!1ses-419!2sco"
+                     onclick="this.innerHTML='<iframe src=&quot;'+this.dataset.mapSrc+'&quot; allowfullscreen loading=&quot;lazy&quot; referrerpolicy=&quot;no-referrer-when-downgrade&quot; style=&quot;position:absolute;inset:0;width:100%;height:100%;border:0&quot;></iframe>';this.style.cursor='default'">
+                    <div class="map-facade">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        <span class="map-facade-btn">Ver mapa</span>
+                        <p>Universidad Politécnica Salesiana</p>
+                    </div>
                 </div>
             </div>
         </div>
