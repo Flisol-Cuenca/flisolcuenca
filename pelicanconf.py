@@ -1,5 +1,5 @@
 AUTHOR = 'flisolcuenca'
-SITENAME = 'FLISOL Cuenca 2026'
+SITENAME = 'FLISOL Cuenca'
 SITEURL = ""
 
 PATH = "content"
@@ -47,7 +47,7 @@ OG_IMAGE = '/theme/img/og-flisol-cuenca-2026.jpg'
 EVENT_NAME       = 'FLISOL Cuenca 2026'
 EVENT_DATE_START = '2026-05-16T09:00:00-05:00'
 EVENT_DATE_END   = '2026-05-16T17:00:00-05:00'
-EVENT_LOCATION   = 'Universidad de Cuenca, Av. 12 de Abril, Cuenca, Ecuador'
+EVENT_LOCATION   = 'Universidad Politécnica Salesiana, Cuenca, Ecuador'
 EVENT_CITY       = 'Cuenca'
 EVENT_COUNTRY    = 'EC'
 EVENT_STATUS     = 'EventScheduled'
