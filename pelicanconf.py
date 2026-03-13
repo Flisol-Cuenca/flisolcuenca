@@ -55,5 +55,5 @@ EVENT_ATTENDANCE = 'OfflineEventAttendanceMode'
 
 # Organización 
 ORGANIZER_NAME   = 'FLISOL Cuenca'
-ORGANIZER_EMAIL  = 'contacto@flisolcuenca.org'
+ORGANIZER_EMAIL  = 'info@flisolcuenca.org'
 TWITTER_HANDLE   = '@FLISOLCuenca'
