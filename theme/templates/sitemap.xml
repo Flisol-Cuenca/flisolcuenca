@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  {%- set base_url = SITEURL if SITEURL else "https://flisolcuenca.github.io" %}
+
+  {# Página principal #}
+  <url>
+    <loc>{{ base_url }}/</loc>
+    <lastmod>{{ EVENT_DATE_START[:10] }}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="{{ base_url }}/"/>
+  </url>
+
+  {# Secciones como anclas — ayudan a crawlers que siguen fragment links #}
+  {%- set sections = [
+    ('hero',          '1.0', 'weekly'),
+    ('inscripciones', '0.9', 'weekly'),
+    ('agenda',        '0.9', 'weekly'),
+    ('comunidades',   '0.8', 'monthly'),
+    ('installfest',   '0.8', 'monthly'),
+    ('sponsors',      '0.7', 'monthly'),
+    ('contacto',      '0.7', 'monthly'),
+  ] %}
+  {%- for anchor, priority, freq in sections %}
+  <url>
+    <loc>{{ base_url }}/#{{ anchor }}</loc>
+    <lastmod>{{ EVENT_DATE_START[:10] }}</lastmod>
+    <changefreq>{{ freq }}</changefreq>
+    <priority>{{ priority }}</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="{{ base_url }}/#{{ anchor }}"/>
+  </url>
+  {%- endfor %}
+
+</urlset>
