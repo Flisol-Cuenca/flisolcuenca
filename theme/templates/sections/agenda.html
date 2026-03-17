@@ -39,129 +39,156 @@
     line-height: 1.6;
 }
 
-/* Timeline Preview */
 .agenda-preview {
-    max-width: 650px;
+    max-width: 660px;
     margin: 0 auto;
 }
 
 .agenda-preview-title {
-    font-size: 1.15rem;
+    font-size: 0.78rem;
     text-align: center;
-    margin-bottom: var(--space-md);
-    color: var(--color-slate);
+    margin-bottom: var(--space-lg);
+    color: var(--color-silver);
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.12em;
     font-weight: 700;
 }
 
 .agenda-timeline {
-    position: relative;
-    padding-left: 80px;
-}
-
-.agenda-timeline::before {
-    content: '';
-    position: absolute;
-    left: 68px;
-    top: 8px;
-    bottom: 8px;
-    width: 3px;
-    background: var(--color-border);
-    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
 }
 
 .timeline-block {
-    position: relative;
-    padding: var(--space-sm) 0 var(--space-sm) var(--space-md);
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
+    display: grid;
+    grid-template-columns: 62px 20px 1fr;
+    column-gap: var(--space-sm);
+    align-items: stretch;
 }
 
-.timeline-block::before {
+.timeline-time {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding-top: calc(var(--space-sm) + 0.45rem);
+    font-family: var(--font-primary);
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--color-slate);
+    white-space: nowrap;
+    line-height: 1;
+}
+
+.timeline-track {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.timeline-track::before,
+.timeline-track::after {
     content: '';
-    position: absolute;
-    left: calc(var(--space-md) * -1 + -4px);
-    top: 50%;
-    transform: translateY(-50%);
-    width: 11px;
-    height: 11px;
+    flex: 1;
+    width: 2px;
+    background: var(--color-border);
+}
+
+.timeline-block:first-child .timeline-track::before { display: none; }
+.timeline-block:last-child  .timeline-track::after  { display: none; }
+
+.timeline-dot {
+    width: 13px;
+    height: 13px;
+    flex-shrink: 0;
     border-radius: 50%;
     background: var(--color-red);
     border: 3px solid var(--color-bg);
     box-shadow: 0 0 0 2px var(--color-red);
-    z-index: 1;
+    margin: 0.3rem 0;
 }
 
-.timeline-block--placeholder::before {
+.timeline-block--placeholder .timeline-dot {
     background: var(--color-bg);
-    border: 3px solid var(--color-silver);
+    border-color: var(--color-border);
     box-shadow: 0 0 0 2px var(--color-silver);
 }
 
-.timeline-time {
-    position: absolute;
-    left: -80px;
-    width: 56px;
-    text-align: right;
-    font-family: var(--font-primary);
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: var(--color-text);
-}
-
 .timeline-content {
-    background: var(--color-bg);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-sm);
-    padding: 0.75em 1em;
-    flex: 1;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: var(--space-sm);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--color-red);
+    border-radius: var(--radius-md);
+    padding: 0.85rem var(--space-sm);
+    margin: 0.35rem 0;
+    transition: box-shadow var(--transition);
 }
 
-.timeline-content strong {
-    font-size: 0.95rem;
+.timeline-content:hover {
+    box-shadow: var(--shadow-sm);
 }
 
 .timeline-block--placeholder .timeline-content {
-    border-style: dashed;
-    border-color: var(--color-silver);
     background: var(--color-bg-alt);
+    border-style: dashed;
+    border-left-style: dashed;
+    border-color: var(--color-silver);
+}
+
+.timeline-info {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.timeline-icon {
+    flex-shrink: 0;
+    color: var(--color-red);
+    opacity: 0.75;
+}
+
+.timeline-block--placeholder .timeline-icon {
+    color: var(--color-silver);
+}
+
+.timeline-content strong {
+    font-size: 0.92rem;
+    color: var(--color-text);
+    font-weight: 600;
 }
 
 .timeline-note {
-    font-size: 0.75rem;
+    flex-shrink: 0;
+    font-size: 0.72rem;
     font-weight: 700;
-    color: var(--color-coral);
-    background: rgba(238, 90, 77, 0.1);
-    padding: 0.2em 0.7em;
+    color: var(--color-slate);
+    background: var(--color-border);
+    padding: 0.25em 0.75em;
     border-radius: 20px;
     white-space: nowrap;
+    letter-spacing: 0.02em;
 }
 
-@media (max-width: 599px) {
-    .agenda-timeline {
-        padding-left: 60px;
-    }
-
-    .agenda-timeline::before {
-        left: 48px;
+/* ── Mobile ── */
+@media (max-width: 480px) {
+    .timeline-block {
+        grid-template-columns: 46px 16px 1fr;
+        column-gap: 0.5rem;
     }
 
     .timeline-time {
-        left: -60px;
-        width: 40px;
-        font-size: 0.8rem;
+        font-size: 0.75rem;
+        padding-top: calc(var(--space-sm) + 0.5rem);
     }
 
     .timeline-content {
         flex-direction: column;
         align-items: flex-start;
-        gap: 0.3em;
+        gap: 0.4rem;
+        padding: 0.75rem;
     }
 }
 </style>
@@ -178,50 +205,81 @@
             </div>
             <h3>¡Convocatoria de charlas abierta!</h3>
             <p>Estamos armando la agenda con las mejores propuestas de la comunidad. La programación definitiva se publicará una vez finalizado el proceso de selección.</p>
-            <a href="#inscripciones" class="btn btn-primary">Postula tu charla o taller</a>
+            <a href="#inscripciones" class="btn btn-primary">Postula tu propuesta</a>
         </div>
 
         <div class="agenda-preview">
-            <h3 class="agenda-preview-title">Estructura del día</h3>
+            <p class="agenda-preview-title">Estructura del día</p>
             <div class="agenda-timeline">
+
                 <div class="timeline-block">
-                    <span class="timeline-time">09:00</span>
+                    <time class="timeline-time">09:00</time>
+                    <div class="timeline-track"><span class="timeline-dot"></span></div>
                     <div class="timeline-content">
-                        <strong>Registro y acreditación</strong>
+                        <div class="timeline-info">
+                            <svg class="timeline-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            <strong>Registro y acreditación</strong>
+                        </div>
                     </div>
                 </div>
+
                 <div class="timeline-block">
-                    <span class="timeline-time">09:30</span>
+                    <time class="timeline-time">09:30</time>
+                    <div class="timeline-track"><span class="timeline-dot"></span></div>
                     <div class="timeline-content">
-                        <strong>Inauguración</strong>
+                        <div class="timeline-info">
+                            <svg class="timeline-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <strong>Inauguración</strong>
+                        </div>
                     </div>
                 </div>
+
                 <div class="timeline-block timeline-block--placeholder">
-                    <span class="timeline-time">10:00</span>
+                    <time class="timeline-time">10:00</time>
+                    <div class="timeline-track"><span class="timeline-dot"></span></div>
                     <div class="timeline-content">
-                        <strong>Charlas y talleres — Bloque mañana</strong>
+                        <div class="timeline-info">
+                            <svg class="timeline-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                            <strong>Sesiones comunitarias — Bloque mañana</strong>
+                        </div>
                         <span class="timeline-note">Pendiente CFP</span>
                     </div>
                 </div>
+
                 <div class="timeline-block">
-                    <span class="timeline-time">12:00</span>
+                    <time class="timeline-time">12:00</time>
+                    <div class="timeline-track"><span class="timeline-dot"></span></div>
                     <div class="timeline-content">
-                        <strong>Almuerzo y networking</strong>
+                        <div class="timeline-info">
+                            <svg class="timeline-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                            <strong>Almuerzo y networking</strong>
+                        </div>
                     </div>
                 </div>
+
                 <div class="timeline-block timeline-block--placeholder">
-                    <span class="timeline-time">13:30</span>
+                    <time class="timeline-time">13:30</time>
+                    <div class="timeline-track"><span class="timeline-dot"></span></div>
                     <div class="timeline-content">
-                        <strong>Charlas y talleres — Bloque tarde</strong>
+                        <div class="timeline-info">
+                            <svg class="timeline-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                            <strong>Sesiones comunitarias — Bloque tarde</strong>
+                        </div>
                         <span class="timeline-note">Pendiente CFP</span>
                     </div>
                 </div>
+
                 <div class="timeline-block">
-                    <span class="timeline-time">17:00</span>
+                    <time class="timeline-time">17:00</time>
+                    <div class="timeline-track"><span class="timeline-dot"></span></div>
                     <div class="timeline-content">
-                        <strong>Cierre y sorteos</strong>
+                        <div class="timeline-info">
+                            <svg class="timeline-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+                            <strong>Cierre y sorteos</strong>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
