@@ -6,6 +6,9 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--space-md);
+    max-width: 860px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 @media (min-width: 600px) {
@@ -14,18 +17,13 @@
     }
 }
 
-@media (min-width: 900px) {
-    .comunidades-grid {
-        grid-template-columns: repeat(6, 1fr);
-    }
-}
-
 .comunidad-card {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: var(--space-md);
+    gap: var(--space-xs);
+    padding: var(--space-md) var(--space-sm);
     background: var(--color-bg);
     border-radius: var(--radius-md);
     border: 1px solid var(--color-border);
@@ -38,28 +36,34 @@
 }
 
 .comunidad-logo {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background: var(--color-cream);
+    width: 100%;
+    height: 72px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: var(--space-sm);
-    border: 2px dashed var(--color-silver);
+    background: var(--color-bg-alt);
+    border-radius: var(--radius-sm);
+    padding: 0.5rem 0.75rem;
+    overflow: hidden;
 }
 
-.comunidad-logo span {
-    font-size: 0.7rem;
-    color: var(--color-slate);
-    text-align: center;
+.comunidad-logo--dark {
+    background: #111111;
+}
+
+.comunidad-logo img {
+    max-width: 100%;
+    height: 100%;
+    width: auto;
+    object-fit: contain;
 }
 
 .comunidad-card h3 {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     font-weight: 600;
     color: var(--color-text);
     margin: 0;
+    line-height: 1.3;
 }
 </style>
 
@@ -69,42 +73,91 @@
         <h2 id="comunidades-title" class="section-title">Comunidades Aliadas</h2>
         <p class="section-description">Organizaciones y comunidades que hacen posible este evento.</p>
         <div class="comunidades-grid">
+
             <article class="comunidad-card">
-                <div class="comunidad-logo" aria-label="Logo de comunidad">
-                    <span>Comunidad 1</span>
+                <div class="comunidad-logo">
+                    <img src="theme/images/ecuadointech.webp" alt="Ecuador In Tech">
                 </div>
                 <h3>Ecuador In Tech</h3>
             </article>
+
             <article class="comunidad-card">
-                <div class="comunidad-logo" aria-label="Logo de comunidad">
-                    <span>Comunidad 2</span>
+                <div class="comunidad-logo">
+                    <img src="theme/images/IEEE.webp" alt="IEEE Sede Cuenca">
                 </div>
-                <h3>IEEE Cuenca</h3>
+                <h3>IEEE Sede Cuenca</h3>
             </article>
+
             <article class="comunidad-card">
-                <div class="comunidad-logo" aria-label="Logo de comunidad">
-                    <span>Comunidad 3</span>
+                <div class="comunidad-logo comunidad-logo--dark">
+                    <img src="theme/images/grupo_software_libre_ASU.webp" alt="ASU Grupo Software Libre">
+                </div>
+                <h3>ASU Grupo Software Libre</h3>
+            </article>
+
+            <article class="comunidad-card">
+                <div class="comunidad-logo">
+                    <img src="theme/images/Grupo-Recicla-UPS.webp" alt="Recicla UPS">
                 </div>
                 <h3>Recicla UPS</h3>
             </article>
+
             <article class="comunidad-card">
-                <div class="comunidad-logo" aria-label="Logo de comunidad">
-                    <span>Comunidad 4</span>
+                <div class="comunidad-logo">
+                    <img src="theme/images/pythonec.webp" alt="Python Ecuador">
                 </div>
-                <h3>Grupo Software Libre Cuenca</h3>
+                <h3>Python Ecuador</h3>
             </article>
+
             <article class="comunidad-card">
-                <div class="comunidad-logo" aria-label="Logo de comunidad">
-                    <span>Comunidad 5</span>
-                </div>
-                <h3>Ethereum Ecuador</h3>
-            </article>
-            <article class="comunidad-card">
-                <div class="comunidad-logo" aria-label="Logo de comunidad">
-                    <span>Comunidad 6</span>
+                <div class="comunidad-logo">
+                    <img src="theme/images/Ubuntu_EC_Mapa.svg" alt="Ubuntu Ecuador">
                 </div>
                 <h3>Ubuntu Ecuador</h3>
             </article>
+
+            <article class="comunidad-card">
+                <div class="comunidad-logo">
+                    <img src="theme/images/ethecuador.webp" alt="Ethereum Ecuador">
+                </div>
+                <h3>Ethereum Ecuador</h3>
+            </article>
+
+            <article class="comunidad-card">
+                <div class="comunidad-logo">
+                    <img src="theme/images/kernelchaos.webp" alt="Kernel Chaos Hacking Crew">
+                </div>
+                <h3>Kernel Chaos</h3>
+            </article>
+
+            <article class="comunidad-card">
+                <div class="comunidad-logo comunidad-logo--dark">
+                    <img src="theme/images/darknode.webp" alt="Dark Node Cuenca">
+                </div>
+                <h3>Dark Node Cuenca</h3>
+            </article>
+
+            <article class="comunidad-card">
+                <div class="comunidad-logo">
+                    <img src="theme/images/cnc.webp" alt="Cloud Native Cuenca">
+                </div>
+                <h3>Cloud Native Cuenca</h3>
+            </article>
+
+            <article class="comunidad-card">
+                <div class="comunidad-logo">
+                    <img src="theme/images/logo-aws-ug-ecuador-.webp" alt="AWS User Group Ecuador">
+                </div>
+                <h3>AWS User Group Ecuador</h3>
+            </article>
+
+            <article class="comunidad-card">
+                <div class="comunidad-logo">
+                    <img src="theme/images/aws-ug-security-ec.webp" alt="AWS User Groups Security Ecuador">
+                </div>
+                <h3>AWS Security Group Ecuador</h3>
+            </article>
+
         </div>
     </div>
 </section>
