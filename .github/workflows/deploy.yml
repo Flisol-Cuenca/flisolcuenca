@@ -36,6 +36,8 @@ jobs:
 
       - name: Build site
         run: pelican content -s publishconf.py
+        env:
+          SITEURL: ${{ vars.SITEURL }}
 
       - name: Upload artifact for GitHub Pages
         uses: actions/upload-pages-artifact@v3
