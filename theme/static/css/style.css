@@ -290,17 +290,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary {
-    background: var(--color-gold);
-    color: var(--color-text);
-    border-color: var(--color-gold);
+    background: var(--color-red);
+    color: var(--color-bg);
+    border-color: var(--color-red);
 }
 
 .btn-primary:hover {
-    background: var(--color-gold-dark);
-    border-color: var(--color-gold-dark);
+    background: var(--color-red-dark);
+    border-color: var(--color-red-dark);
     color: var(--color-bg);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(225, 170, 3, 0.35);
+    box-shadow: 0 6px 20px rgba(193, 1, 9, 0.35);
 }
 
 .btn-outline {
