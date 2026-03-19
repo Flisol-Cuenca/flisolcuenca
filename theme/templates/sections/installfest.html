@@ -59,29 +59,45 @@
 
 .distro-item {
     text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.distro-item:hover {
+    transform: translateY(-6px);
 }
 
 .distro-logo {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto var(--space-xs);
-    border-radius: var(--radius-md);
-    background: var(--color-bg);
-    border: 2px dashed var(--color-silver);
+    width: 88px;
+    height: 88px;
+    margin: 0 auto 0.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: border-color var(--transition);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: var(--space-xxs);
+    border: 2px solid transparent;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
 }
 
-.distro-logo:hover {
-    border-color: var(--color-green);
+.distro-item:hover .distro-logo {
+    transform: scale(1.08);
+    box-shadow: 0 0 0 10px rgba(29, 108, 184, 0.25);
 }
 
-.distro-logo span {
-    font-size: 0.75rem;
-    color: var(--color-slate);
+.distro-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.distro-name {
+    font-size: 0.95rem;
     font-weight: 600;
+    color: #1d6cb8;
+    letter-spacing: 0.01em;
 }
 </style>
 
@@ -125,22 +141,40 @@
                 <h3>Distribuciones disponibles</h3>
                 <div class="distros-grid">
                     <div class="distro-item" aria-label="Ubuntu">
-                        <div class="distro-logo"><span>Ubuntu</span></div>
+                        <div class="distro-logo">
+                            <img src="{{ SITEURL }}/theme/images/ubuntu-logo.png" alt="Ubuntu" width="80" height="80" loading="lazy">
+                        </div>
+                        <div class="distro-name">Ubuntu</div>
                     </div>
                     <div class="distro-item" aria-label="Fedora">
-                        <div class="distro-logo"><span>Fedora</span></div>
+                        <div class="distro-logo">
+                            <img src="{{ SITEURL }}/theme/images/fedora-logo.png" alt="Fedora" width="80" height="80" loading="lazy">
+                        </div>
+                        <div class="distro-name">Fedora</div>
                     </div>
                     <div class="distro-item" aria-label="Linux Mint">
-                        <div class="distro-logo"><span>Mint</span></div>
+                        <div class="distro-logo">
+                            <img src="{{ SITEURL }}/theme/images/mint-logo.png" alt="Linux Mint" width="80" height="80" loading="lazy">
+                        </div>
+                        <div class="distro-name">Linux Mint</div>
                     </div>
                     <div class="distro-item" aria-label="Debian">
-                        <div class="distro-logo"><span>Debian</span></div>
+                        <div class="distro-logo">
+                            <img src="{{ SITEURL }}/theme/images/debian-logo.png" alt="Debian" width="80" height="80" loading="lazy">
+                        </div>
+                        <div class="distro-name">Debian</div>
                     </div>
                     <div class="distro-item" aria-label="openSUSE">
-                        <div class="distro-logo"><span>openSUSE</span></div>
+                        <div class="distro-logo">
+                            <img src="{{ SITEURL }}/theme/images/openSUSE-logo.png" alt="openSUSE" width="80" height="80" loading="lazy">
+                        </div>
+                        <div class="distro-name">openSUSE</div>
                     </div>
                     <div class="distro-item" aria-label="Manjaro">
-                        <div class="distro-logo"><span>Manjaro</span></div>
+                        <div class="distro-logo">
+                            <img src="{{ SITEURL }}/theme/images/manjaro-logo.png" alt="Manjaro" width="80" height="80" loading="lazy">
+                        </div>
+                        <div class="distro-name">Manjaro</div>
                     </div>
                 </div>
             </div>
