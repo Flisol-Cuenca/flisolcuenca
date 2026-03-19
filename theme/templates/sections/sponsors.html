@@ -21,9 +21,8 @@
     letter-spacing: 0.08em;
 }
 
-.sponsors-tier--sede  { color: var(--color-red); }
-.sponsors-tier--gold  { color: var(--color-gold-dark); }
-.sponsors-tier--bronze{ color: var(--color-coral); }
+.sponsors-tier--sede { color: var(--color-red); }
+.sponsors-tier--sudo { color: var(--color-silver); }
 
 .sponsors-grid {
     display: grid;
@@ -37,15 +36,9 @@
     margin: 0 auto;
 }
 
-.sponsors-grid--gold {
+.sponsors-grid--sudo {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     max-width: 600px;
-    margin: 0 auto;
-}
-
-.sponsors-grid--bronze {
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    max-width: 700px;
     margin: 0 auto;
 }
 
@@ -64,23 +57,85 @@
     box-shadow: var(--shadow-md);
 }
 
+.sponsor-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+}
+
 .sponsor-logo {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto var(--space-sm);
-    border: 2px dashed var(--color-silver);
     border-radius: var(--radius-sm);
-    background: var(--color-cream);
+    background: var(--color-bg-alt);
+    overflow: hidden;
+    padding: 0.75rem;
 }
 
-.sponsor-card--sede   .sponsor-logo { width: 240px; height: 120px; }
-.sponsor-card--gold   .sponsor-logo { width: 180px; height: 90px; }
-.sponsor-card--bronze .sponsor-logo { width: 140px; height: 70px; }
+.sponsor-card--sede .sponsor-logo { width: 100%; height: 110px; }
+.sponsor-card--sudo .sponsor-logo { width: 100%; height: 140px; }
+
+/* CTA card — persuades new sponsors */
+.sponsor-card--cta {
+    border: 2px dashed var(--color-border);
+    background: var(--color-bg-alt);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+    min-height: 180px;
+}
+
+.sponsor-card--cta:hover {
+    border-color: var(--color-silver);
+    box-shadow: var(--shadow-sm);
+}
+
+.sponsor-cta-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-slate);
+    margin-bottom: 0.25rem;
+}
+
+.sponsor-cta-label {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.sponsor-cta-sub {
+    font-size: 0.8rem;
+    color: var(--color-slate);
+    line-height: 1.4;
+    max-width: 160px;
+    margin: 0 auto;
+}
 
 .sponsor-logo span {
     font-size: 0.8rem;
     color: var(--color-slate);
+}
+
+.sponsor-logo img {
+    max-width: 100%;
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+.sponsor-logo--dark {
+    background: #111111;
 }
 
 .sponsor-name {
@@ -103,60 +158,53 @@
             </h3>
             <div class="sponsors-grid sponsors-grid--sede">
                 <article class="sponsor-card sponsor-card--sede">
-                    <div class="sponsor-logo" aria-label="Logo de sponsor sede">
-                        <span>Sede principal</span>
-                    </div>
-                    <p class="sponsor-name">Universidad de Cuenca</p>
+                    <a class="sponsor-link" href="https://www.ups.edu.ec/sede-cuenca" target="_blank" rel="noopener noreferrer">
+                        <div class="sponsor-logo">
+                            <img src="theme/images/Logo_Universidad_Politécnica_Salesiana_del_Ecuador.png"
+                                 alt="Universidad Politécnica Salesiana del Ecuador">
+                        </div>
+                        <p class="sponsor-name">Universidad Politécnica Salesiana — Sede Cuenca</p>
+                    </a>
                 </article>
             </div>
         </div>
 
         <div class="sponsors-level">
-            <h3 class="sponsors-tier sponsors-tier--gold">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                Gold
+            <h3 class="sponsors-tier sponsors-tier--sudo">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                SUDO
             </h3>
-            <div class="sponsors-grid sponsors-grid--gold">
-                <article class="sponsor-card sponsor-card--gold">
-                    <div class="sponsor-logo" aria-label="Logo de sponsor gold">
-                        <span>Sponsor Gold</span>
-                    </div>
-                    <p class="sponsor-name">Empresa Gold 1</p>
+            <div class="sponsors-grid sponsors-grid--sudo">
+
+                <article class="sponsor-card sponsor-card--sudo">
+                    <a class="sponsor-link" href="https://www.condorcoders.com/" target="_blank" rel="noopener noreferrer">
+                        <div class="sponsor-logo">
+                            <img src="theme/images/condorcoders.webp" alt="Condor Coders">
+                        </div>
+                        <p class="sponsor-name">Condor Coders</p>
+                    </a>
                 </article>
-                <article class="sponsor-card sponsor-card--gold">
-                    <div class="sponsor-logo" aria-label="Logo de sponsor gold">
-                        <span>Sponsor Gold</span>
-                    </div>
-                    <p class="sponsor-name">Empresa Gold 2</p>
+
+                <article class="sponsor-card sponsor-card--sudo">
+                    <a class="sponsor-link" href="https://www.meetup.com/ai-aws-colombia/events/313829212/" target="_blank" rel="noopener noreferrer">
+                        <div class="sponsor-logo sponsor-logo--dark">
+                            <img src="theme/images/aws-ug-securityec.png" alt="AWS Security Group Ecuador">
+                        </div>
+                        <p class="sponsor-name">AWS Security Group Ecuador</p>
+                    </a>
                 </article>
+
+                <article class="sponsor-card sponsor-card--sudo sponsor-card--cta">
+                    <div class="sponsor-cta-icon" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    </div>
+                    <p class="sponsor-cta-label">¿Tu empresa aquí?</p>
+                    <p class="sponsor-cta-sub">Apoya el software libre y conecta con la comunidad tech de Cuenca.</p>
+                    <a href="https://tally.so/r/Y5dz1d" class="btn btn-outline" style="font-size:0.82rem; padding:0.55em 1.25em; margin-top:0.25rem;">Ser sponsor</a>
+                </article>
+
             </div>
         </div>
 
-        <div class="sponsors-level">
-            <h3 class="sponsors-tier sponsors-tier--bronze">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
-                Bronze
-            </h3>
-            <div class="sponsors-grid sponsors-grid--bronze">
-                <article class="sponsor-card sponsor-card--bronze">
-                    <div class="sponsor-logo" aria-label="Logo de sponsor bronze">
-                        <span>Sponsor</span>
-                    </div>
-                    <p class="sponsor-name">Empresa Bronze 1</p>
-                </article>
-                <article class="sponsor-card sponsor-card--bronze">
-                    <div class="sponsor-logo" aria-label="Logo de sponsor bronze">
-                        <span>Sponsor</span>
-                    </div>
-                    <p class="sponsor-name">Empresa Bronze 2</p>
-                </article>
-                <article class="sponsor-card sponsor-card--bronze">
-                    <div class="sponsor-logo" aria-label="Logo de sponsor bronze">
-                        <span>Sponsor</span>
-                    </div>
-                    <p class="sponsor-name">Empresa Bronze 3</p>
-                </article>
-            </div>
-        </div>
     </div>
 </section>
