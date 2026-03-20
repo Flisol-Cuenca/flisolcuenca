@@ -32,27 +32,58 @@ theme/
 Cada archivo en `sections/` es autocontenido: incluye un bloque `<style>` con sus propios estilos
 seguido del markup HTML de la sección. Para modificar una sección basta con editar ese único archivo.
 
-## Dependencias
+## Requisitos previos
 
-Declaradas en `requirements.txt`. Requiere **Python 3** instalado.
+Antes de empezar, asegúrate de tener instalado lo siguiente:
+
+- **Python 3.10+**
+- **Git**
+- `pip` para instalar dependencias de Python
+- `make` para usar los comandos definidos en el `Makefile`
+
+## Instalación
+
+1. Haz un fork del repositorio y clona tu copia local:
+
+```bash
+git clone https://github.com/<tu-usuario>/flisolcuenca.git
+cd flisolcuenca
+```
+
+2. Crea y activa un entorno virtual:
 
 ```bash
 python3 -m venv venv
 source venv/bin/activate        # Windows: venv\Scripts\activate
+```
+
+3. Instala las dependencias declaradas en `requirements.txt`:
+
+```bash
 pip install -r requirements.txt
 ```
 
-## Cómo ejecutar el proyecto
+## Cómo ejecutar el proyecto localmente
 
-Activa el entorno virtual y levanta el servidor de desarrollo con recarga automática:
+Con el entorno virtual activado, genera el sitio y levanta el servidor de desarrollo con recarga automática:
 
 ```bash
 source venv/bin/activate        # Windows: venv\Scripts\activate
 make devserver                  # disponible en http://localhost:8000
 ```
 
-Para solo generar el HTML sin servidor:
+Si solo necesitas generar el HTML estático sin iniciar el servidor local:
 
 ```bash
 make html
 ```
+
+## Build y despliegue
+
+Para generar la versión de producción del sitio usa:
+
+```bash
+make publish
+```
+
+Además, el repositorio incluye el workflow `.github/workflows/deploy.yml`, que construye el sitio con `publishconf.py` y lo despliega automáticamente a **GitHub Pages** en cada push a la rama `main`.
