@@ -47,15 +47,19 @@
     overflow: hidden;
 }
 
-.comunidad-logo--dark {
-    background: #111111;
-}
-
 .comunidad-logo img {
     max-width: 100%;
     height: 100%;
     width: auto;
     object-fit: contain;
+}
+
+.comunidad-logo img.comunidad-logo--focused {
+    max-height: 170%;
+    max-width: 170%;
+    transform: scale(2.2);
+    transition: transform 0.3s ease;
+    transform-origin: center;
 }
 
 .comunidad-card h3 {
@@ -83,23 +87,23 @@
 
             <article class="comunidad-card">
                 <div class="comunidad-logo">
-                    <img src="theme/images/IEEE.webp" alt="IEEE Sede Cuenca">
+                    <img src="theme/images/IEEE.webp" alt="IEEE Cuenca">
                 </div>
-                <h3>IEEE Sede Cuenca</h3>
+                <h3>ASU IEEE UPS Cuenca </h3>
             </article>
 
             <article class="comunidad-card">
-                <div class="comunidad-logo comunidad-logo--dark">
-                    <img src="theme/images/grupo_software_libre_ASU.webp" alt="ASU Grupo Software Libre">
+                <div class="comunidad-logo">
+                    <img src="theme/images/grupo_software_libre_ASU.png" alt="ASU Grupo Software Libre">
                 </div>
                 <h3>ASU Grupo Software Libre</h3>
             </article>
 
             <article class="comunidad-card">
                 <div class="comunidad-logo">
-                    <img src="theme/images/Grupo-Recicla-UPS.webp" alt="Recicla UPS">
+                    <img src="theme/images/Grupo-Recicla-UPS.webp" alt="ASU Recicla UPS">
                 </div>
-                <h3>Recicla UPS</h3>
+                <h3>ASU Recicla UPS</h3>
             </article>
 
             <article class="comunidad-card">
@@ -131,7 +135,7 @@
             </article>
 
             <article class="comunidad-card">
-                <div class="comunidad-logo comunidad-logo--dark">
+                <div class="comunidad-logo">
                     <img src="theme/images/darknode.webp" alt="Dark Node Cuenca">
                 </div>
                 <h3>Dark Node Cuenca</h3>
@@ -153,7 +157,7 @@
 
             <article class="comunidad-card">
                 <div class="comunidad-logo">
-                    <img src="theme/images/aws-ug-security-ec.webp" alt="AWS User Groups Security Ecuador">
+                    <img class="comunidad-logo--focused" src="theme/images/aws-ug-security-ec-1250.png" alt="AWS User Groups Security Ecuador">
                 </div>
                 <h3>AWS Security Group Ecuador</h3>
             </article>
