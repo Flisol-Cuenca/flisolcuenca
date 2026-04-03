@@ -1,0 +1,221 @@
+<style>
+/* ==========================================================================
+   QUÉ ES FLISOL
+   ========================================================================== */
+.que-es-intro {
+    display: grid;
+    gap: var(--space-xl);
+    align-items: center;
+    margin-bottom: var(--space-xl);
+}
+
+@media (min-width: 768px) {
+    .que-es-intro {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.que-es-lead {
+    font-size: clamp(1rem, 2.2vw, 1.15rem);
+    line-height: 1.8;
+    color: var(--color-text);
+    margin: 0 0 var(--space-md);
+}
+
+.que-es-lead strong {
+    color: var(--color-red);
+}
+
+.que-es-cta {
+    margin-top: var(--space-lg);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    align-items: center;
+}
+
+.que-es-pillars {
+    display: grid;
+    gap: var(--space-md);
+}
+
+.pillar-card {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+    padding: var(--space-md);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.pillar-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.pillar-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-sm);
+    background: var(--color-red);
+    color: var(--color-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pillar-icon--gold  { background: var(--color-gold); }
+.pillar-icon--slate { background: var(--color-slate); }
+
+.pillar-body h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 0 0.3em;
+    color: var(--color-text);
+}
+
+.pillar-body p {
+    font-size: 0.9rem;
+    color: var(--color-slate);
+    line-height: 1.55;
+    margin: 0;
+}
+
+.que-es-stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-lg);
+    padding: var(--space-lg) 0 0;
+    border-top: 1px solid var(--color-border);
+}
+
+.stat-item {
+    text-align: center;
+    min-width: 100px;
+}
+
+.stat-value {
+    display: block;
+    font-family: var(--font-primary);
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 800;
+    color: var(--color-red);
+    line-height: 1;
+}
+
+.stat-label {
+    display: block;
+    margin-top: 0.35em;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--color-slate);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+@media (max-width: 480px) {
+    .que-es-stats {
+        gap: var(--space-md);
+    }
+    .stat-item {
+        min-width: 80px;
+    }
+}
+</style>
+
+<section id="que-es-flisol" class="section" aria-labelledby="que-es-flisol-title">
+    <div class="container">
+        <h2 id="que-es-flisol-title" class="section-title">¿Qué es FLISOL?</h2>
+        <p class="section-description">El festival de software libre más grande de Latinoamérica, y este año llega a Cuenca.</p>
+
+        <div class="que-es-intro">
+
+            <div>
+                <p class="que-es-lead">
+                    <strong>FLISOL</strong> —Festival Latinoamericano de Instalación de Software Libre— es un evento
+                    que se celebra simultáneamente en cientos de ciudades de toda América Latina con un único objetivo:
+                    <strong>acercar el software libre a todas las personas</strong>, sin importar su nivel técnico.
+                </p>
+                <p class="que-es-lead">
+                    En un mismo día, voluntarios instalan Linux en tu computadora,
+                    expertos comparten charlas sobre tecnología abierta, y la comunidad
+                    se reúne para celebrar la <strong>libertad digital</strong>.
+                    Entrada libre, sin costo, para todos y todas.
+                </p>
+                <div class="que-es-cta">
+                    <a href="#inscripciones" class="btn btn-primary">Quiero participar</a>
+                    <a href="#installfest" class="btn btn-outline">Conoce el InstallFest</a>
+                </div>
+            </div>
+
+            <div class="que-es-pillars">
+
+                <article class="pillar-card">
+                    <div class="pillar-icon" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="2" y1="12" x2="22" y2="12"/>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                        </svg>
+                    </div>
+                    <div class="pillar-body">
+                        <h3>Gratuito y para todos</h3>
+                        <p>Sin costo, sin requisitos previos. Cualquier persona puede asistir, aprender e instalar software libre en su computadora.</p>
+                    </div>
+                </article>
+
+                <article class="pillar-card">
+                    <div class="pillar-icon pillar-icon--gold" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                        </svg>
+                    </div>
+                    <div class="pillar-body">
+                        <h3>Charlas y talleres</h3>
+                        <p>Aprende de expertos en Linux, ciberseguridad, privacidad digital, desarrollo de software y mucho más.</p>
+                    </div>
+                </article>
+
+                <article class="pillar-card">
+                    <div class="pillar-icon pillar-icon--slate" aria-hidden="true">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <div class="pillar-body">
+                        <h3>Comunidad y libertad digital</h3>
+                        <p>Conecta con desarrolladores, estudiantes y entusiastas que creen en un mundo tecnológico más libre y accesible.</p>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+
+        <div class="que-es-stats" role="list" aria-label="FLISOL en números">
+            <div class="stat-item" role="listitem">
+                <span class="stat-value">+20</span>
+                <span class="stat-label">años de historia</span>
+            </div>
+            <div class="stat-item" role="listitem">
+                <span class="stat-value">+600</span>
+                <span class="stat-label">ciudades participantes</span>
+            </div>
+            <div class="stat-item" role="listitem">
+                <span class="stat-value">+15</span>
+                <span class="stat-label">países de Latinoamérica</span>
+            </div>
+            <div class="stat-item" role="listitem">
+                <span class="stat-value">100%</span>
+                <span class="stat-label">gratuito y libre</span>
+            </div>
+        </div>
+
+    </div>
+</section>
