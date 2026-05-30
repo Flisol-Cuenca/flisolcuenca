@@ -33,4 +33,13 @@
   </url>
   {%- endfor %}
 
+  {# Salón de la Fama de Voluntarios #}
+  <url>
+    <loc>{{ base_url }}/voluntarios/</loc>
+    <lastmod>{{ EVENT_DATE_START[:10] }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="{{ base_url }}/voluntarios/"/>
+  </url>
+
 </urlset>

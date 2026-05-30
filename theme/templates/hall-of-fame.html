@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+
+{% block title %}Salón de la Fama de Voluntarios – {{ SITENAME }}{% endblock %}
+
+{% block content %}
+<style>
+/* ==========================================================================
+   SALÓN DE LA FAMA — VOLUNTARIOS
+   ========================================================================== */
+.hof-page {
+    padding-top: calc(var(--nav-height) + var(--space-xl));
+    padding-bottom: var(--space-2xl);
+}
+
+.hof-hero {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto var(--space-xl);
+}
+
+.hof-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-dark) 100%);
+    color: var(--color-bg);
+    margin-bottom: var(--space-md);
+    box-shadow: 0 4px 20px rgba(225, 170, 3, 0.35);
+}
+
+.hof-icon svg {
+    width: 36px;
+    height: 36px;
+}
+
+.hof-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    margin-bottom: var(--space-xs);
+    color: var(--color-text);
+}
+
+.hof-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--color-gold);
+    border-radius: 2px;
+    margin: var(--space-sm) auto 0;
+}
+
+.hof-description {
+    color: var(--color-slate);
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.hof-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: var(--space-md);
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.hof-card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.hof-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-gold);
+}
+
+.hof-card-star {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--color-bg-alt);
+    color: var(--color-gold);
+}
+
+.hof-card-star svg {
+    width: 16px;
+    height: 16px;
+}
+
+.hof-card-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-text);
+    line-height: 1.3;
+    margin: 0;
+}
+
+.hof-cta {
+    text-align: center;
+    margin-top: var(--space-xl);
+    padding-top: var(--space-xl);
+    border-top: 1px solid var(--color-border);
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hof-cta p {
+    color: var(--color-slate);
+    margin-bottom: var(--space-md);
+}
+</style>
+
+<section class="hof-page section section--alt" aria-labelledby="hof-title">
+    <div class="container">
+        <header class="hof-hero">
+            <div class="hof-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7-6.3-4.6L5.7 21l2.3-7-6-4.6h7.6z"/></svg>
+            </div>
+            <h1 id="hof-title" class="hof-title">Salón de la Fama</h1>
+            <p class="hof-description">
+                Reconocemos a quienes con su tiempo, entusiasmo y trabajo hacen posible FLISOL Cuenca.
+                Gracias por ser la columna vertebral del festival.
+            </p>
+        </header>
+
+        <div class="hof-grid" role="list">
+            {% for name in HALL_OF_FAME_VOLUNTEERS %}
+            <article class="hof-card" role="listitem">
+                <span class="hof-card-star" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7-6.3-4.6L5.7 21l2.3-7-6-4.6h7.6z"/></svg>
+                </span>
+                <p class="hof-card-name">{{ name }}</p>
+            </article>
+            {% endfor %}
+        </div>
+
+        <div class="hof-cta">
+            <p>¿Quieres formar parte del próximo FLISOL?</p>
+            <a href="{{ SITEURL }}/#inscripciones" class="btn btn-primary">Ser voluntario</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

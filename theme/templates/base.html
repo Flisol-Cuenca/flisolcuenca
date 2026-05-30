@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
     {% include 'includes/seo_meta.html' %}
-    <link rel="icon" type="image/x-icon" href="theme/img/favicon.ico">
-    <link rel="shortcut icon" type="image/x-icon" href="theme/img/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="{{ SITEURL }}/theme/img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ SITEURL }}/theme/img/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="theme/css/style.css">
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style.css?v={{ ASSET_VERSION|default('1') }}">
 </head>
 <body>
 
@@ -18,21 +18,22 @@
         <nav class="navbar" aria-label="Navegación principal">
             <div class="nav-container">
                 <a href="{{ SITEURL }}/" class="nav-brand" aria-label="Inicio">
-                    <img src="theme/images/isotipo.svg" alt="FLISOL Cuenca" class="nav-brand-logo">
+                    <img src="{{ SITEURL }}/theme/images/isotipo.svg" alt="FLISOL Cuenca" class="nav-brand-logo">
                     <span class="sr-only">FLISOL Cuenca</span>
                 </a>
                 <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
                     <span class="hamburger"></span>
                 </button>
                 <ul class="nav-links" id="nav-menu" role="menubar">
-                    <li role="none"><a role="menuitem" href="#hero">Inicio</a></li>
-                    <li role="none"><a role="menuitem" href="#que-es-flisol">¿Qué es?</a></li>
-                    <li role="none"><a role="menuitem" href="#comunidades">Comunidades</a></li>
-                    <li role="none"><a role="menuitem" href="#inscripciones">Inscripciones</a></li>
-                    <li role="none"><a role="menuitem" href="#agenda">Agenda</a></li>
-                    <li role="none"><a role="menuitem" href="#installfest">InstallFest</a></li>
-                    <li role="none"><a role="menuitem" href="#sponsors">Sponsors</a></li>
-                    <li role="none"><a role="menuitem" href="#contacto">Contacto</a></li>
+                    <li role="none"><a role="menuitem" href="{{ SITEURL }}/#hero">Inicio</a></li>
+                    <li role="none"><a role="menuitem" href="{{ SITEURL }}/#que-es-flisol">¿Qué es?</a></li>
+                    <li role="none"><a role="menuitem" href="{{ SITEURL }}/#comunidades">Comunidades</a></li>
+                    <li role="none"><a role="menuitem" href="{{ SITEURL }}/#inscripciones">Inscripciones</a></li>
+                    <li role="none"><a role="menuitem" href="{{ SITEURL }}/#agenda">Agenda</a></li>
+                    <li role="none"><a role="menuitem" href="{{ SITEURL }}/#installfest">InstallFest</a></li>
+                    <li role="none"><a role="menuitem" href="{{ SITEURL }}/#sponsors">Sponsors</a></li>
+                    <li role="none"><a role="menuitem" href="{{ SITEURL }}/voluntarios/">Voluntarios</a></li>
+                    <li role="none"><a role="menuitem" href="{{ SITEURL }}/#contacto">Contacto</a></li>
                 </ul>
             </div>
         </nav>
@@ -47,7 +48,7 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="{{ SITEURL }}/" class="footer-logo" aria-label="Inicio">
-                        <img src="theme/images/logo-flisolcuenca-blanco.svg" alt="FLISOL Cuenca" class="footer-logo-image">
+                        <img src="{{ SITEURL }}/theme/images/logo-flisolcuenca-blanco.svg" alt="FLISOL Cuenca" class="footer-logo-image">
                         <span class="sr-only">FLISOL Cuenca</span>
                     </a>
                     <p class="footer-tagline">Festival Latinoamericano de Instalación de Software Libre</p>
@@ -55,10 +56,11 @@
                 <div class="footer-links">
                     <h4>Enlaces</h4>
                     <ul>
-                        <li><a href="#comunidades">Comunidades</a></li>
-                        <li><a href="#inscripciones">Inscripciones</a></li>
-                        <li><a href="#agenda">Agenda</a></li>
-                        <li><a href="#contacto">Contacto</a></li>
+                        <li><a href="{{ SITEURL }}/#comunidades">Comunidades</a></li>
+                        <li><a href="{{ SITEURL }}/#inscripciones">Inscripciones</a></li>
+                        <li><a href="{{ SITEURL }}/#agenda">Agenda</a></li>
+                        <li><a href="{{ SITEURL }}/voluntarios/">Voluntarios</a></li>
+                        <li><a href="{{ SITEURL }}/#contacto">Contacto</a></li>
                     </ul>
                 </div>
                 <div class="footer-social">
@@ -79,6 +81,6 @@
         </div>
     </footer>
 
-    <script src="theme/js/main.js"></script>
+    <script src="{{ SITEURL }}/theme/js/main.js?v={{ ASSET_VERSION|default('1') }}"></script>
 </body>
 </html>

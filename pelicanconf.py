@@ -1,9 +1,16 @@
+from datetime import datetime
+
 AUTHOR = 'flisolcuenca'
 SITENAME = 'FLISOL Cuenca'
 SITEURL = ""
 
 PATH = "content"
 THEME = "theme"
+
+# Cache-busting stamp appended to static asset URLs (CSS/JS).
+# A fresh value is generated on every build so visitors always receive
+# the latest versions instead of stale browser/CDN caches.
+ASSET_VERSION = datetime.utcnow().strftime("%Y%m%d%H%M")
 
 TIMEZONE = 'America/Guayaquil'
 DEFAULT_LANG = 'ES'
@@ -29,7 +36,50 @@ EXTRA_PATH_METADATA = {
 # ── Templates que se renderizan directamente como archivos
 TEMPLATE_PAGES = {
     'sitemap.xml': 'sitemap.xml',
+    'hall-of-fame.html': 'voluntarios/index.html',
 }
+
+# Salón de la Fama — voluntarios reconocidos
+HALL_OF_FAME_VOLUNTEERS = [
+    'María Armijos',
+    'Leslie',
+    'Xavier',
+    'Andres',
+    'Ramsis Peñaloza',
+    'Jorge Cueva',
+    'Aitor Campoverde',
+    'Salomé Balcázar Betancourth',
+    'Rocio Gonzalez Toral',
+    'Xavier Lauca',
+    'Oscar Emilio Guerrero Romero',
+    'Anthony Romero',
+    'Luis Efraín Yanza',
+    'Yarleni Jara',
+    'Veronica Cobos',
+    'Leslie Culcay',
+    'Cinthya Ramon',
+    'Jonathan Vallejo',
+    'Cristina Carchipulla',
+    'Leonardo Gómez',
+    'Gelois',
+    'Manuel Diaz',
+    'Paula Martinez',
+    'Josué Sáenz',
+    'Kevin Banegas',
+    'Gabriel Córdoba',
+    'Ismael Verdugo',
+    'Sebastian Toledo',
+    'Pablo Siranaula',
+    'Daniel Guanga',
+    'Jonnathan Parraga',
+    'Sebastián Verdugo',
+    'Juan Guillén',
+    'Nicolas Ambrosi',
+    'Mauricio Gonzalez',
+    'Pedro Jaramillo',
+    'Elian Chacha',
+    'Zaid San Lucas',
+]
 
 SEO_DESCRIPTION = (
     'Festival Latinoamericano de Instalación de Software Libre en Cuenca, Ecuador. '
