@@ -87,3 +87,5 @@ make publish
 ```
 
 Además, el repositorio incluye el workflow `.github/workflows/deploy.yml`, que construye el sitio con `publishconf.py` y lo despliega automáticamente a **GitHub Pages** en cada push a la rama `main`.
+
+hall of fame for volunteers was included
