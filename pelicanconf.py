@@ -37,7 +37,11 @@ EXTRA_PATH_METADATA = {
 TEMPLATE_PAGES = {
     'sitemap.xml': 'sitemap.xml',
     'hall-of-fame.html': 'voluntarios/index.html',
+    'certificados.html': 'certificados/index.html',
 }
+
+# Certificados de asistencia — salt para hash SHA-256 del email
+CERT_SALT = 'EventSecret2026'
 
 # Salón de la Fama — voluntarios reconocidos
 HALL_OF_FAME_VOLUNTEERS = [

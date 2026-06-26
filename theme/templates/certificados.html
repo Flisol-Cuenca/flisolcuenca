@@ -1,0 +1,180 @@
+{% extends "base.html" %}
+
+{% block title %}Certificado de Asistencia – {{ SITENAME }}{% endblock %}
+
+{% block content %}
+<style>
+/* ==========================================================================
+   CERTIFICADOS — DESCARGA POR EMAIL
+   ========================================================================== */
+.cert-page {
+    padding-top: calc(var(--nav-height) + var(--space-xl));
+    padding-bottom: var(--space-2xl);
+}
+
+.cert-hero {
+    text-align: center;
+    max-width: 520px;
+    margin: 0 auto var(--space-xl);
+}
+
+.cert-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-green) 0%, var(--color-green-dark, #2d7a3a) 100%);
+    color: var(--color-bg);
+    margin-bottom: var(--space-md);
+    box-shadow: 0 4px 20px rgba(46, 125, 50, 0.35);
+}
+
+.cert-icon svg {
+    width: 36px;
+    height: 36px;
+}
+
+.cert-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    margin-bottom: var(--space-xs);
+    color: var(--color-text);
+}
+
+.cert-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--color-green);
+    border-radius: 2px;
+    margin: var(--space-sm) auto 0;
+}
+
+.cert-description {
+    color: var(--color-slate);
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.cert-form-card {
+    max-width: 440px;
+    margin: 0 auto;
+    padding: var(--space-lg);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.cert-form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: var(--space-xs);
+    color: var(--color-text);
+}
+
+.cert-form input[type="email"] {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    font-family: inherit;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background: var(--color-bg);
+    color: var(--color-text);
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.cert-form input[type="email"]:focus {
+    outline: none;
+    border-color: var(--color-green);
+    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.15);
+}
+
+.cert-form .btn {
+    width: 100%;
+    margin-top: var(--space-md);
+}
+
+.cert-form .btn:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.cert-error {
+    display: none;
+    margin-top: var(--space-md);
+    padding: var(--space-sm) var(--space-md);
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: var(--radius-sm);
+    color: #991b1b;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.cert-error.is-visible {
+    display: block;
+}
+
+.cert-hint {
+    margin-top: var(--space-lg);
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--color-slate);
+    max-width: 440px;
+    margin-left: auto;
+    margin-right: auto;
+}
+</style>
+
+<section class="cert-page section section--alt" aria-labelledby="cert-title">
+    <div class="container">
+        <header class="cert-hero">
+            <div class="cert-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            </div>
+            <h1 id="cert-title" class="cert-title">Certificado de Asistencia</h1>
+            <p class="cert-description">
+                Ingresa el correo electrónico con el que te registraste como asistente en Luma
+                para descargar tu certificado de participación en FLISOL Cuenca 2026.
+            </p>
+        </header>
+
+        <div class="cert-form-card">
+            <form
+                id="cert-download-form"
+                class="cert-form"
+                data-cert-salt="{{ CERT_SALT }}"
+                data-cert-base="{{ SITEURL }}/theme/certs/"
+                novalidate
+            >
+                <label for="cert-email">Correo electrónico</label>
+                <input
+                    type="email"
+                    id="cert-email"
+                    name="email"
+                    autocomplete="email"
+                    required
+                    placeholder="tu@correo.com"
+                >
+                <button type="submit" class="btn btn-primary" id="cert-submit-btn">
+                    Descargar certificado
+                </button>
+                <p id="cert-error" class="cert-error" role="alert" aria-live="polite">
+                    No encontramos un certificado con ese correo. Verifica que sea el mismo email
+                    con el que te inscribiste como asistente.
+                </p>
+            </form>
+        </div>
+
+        <p class="cert-hint">
+            ¿Aún no te registraste?
+            <a href="{{ SITEURL }}/#inscripciones">Consulta las inscripciones</a>.
+        </p>
+    </div>
+</section>
+{% endblock %}

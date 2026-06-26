@@ -42,4 +42,13 @@
     <xhtml:link rel="alternate" hreflang="es" href="{{ base_url }}/voluntarios/"/>
   </url>
 
+  {# Certificados de asistencia #}
+  <url>
+    <loc>{{ base_url }}/certificados/</loc>
+    <lastmod>{{ EVENT_DATE_START[:10] }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="{{ base_url }}/certificados/"/>
+  </url>
+
 </urlset>

@@ -88,4 +88,53 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   });
+
+  // --- Certificate download by email ---
+  const certForm = document.getElementById("cert-download-form");
+  if (certForm) {
+    const emailInput = document.getElementById("cert-email");
+    const submitBtn = document.getElementById("cert-submit-btn");
+    const errorEl = document.getElementById("cert-error");
+    const salt = certForm.dataset.certSalt;
+    const baseUrl = certForm.dataset.certBase;
+
+    const sha256Hex = async (text) => {
+      const data = new TextEncoder().encode(text);
+      const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+      return Array.from(new Uint8Array(hashBuffer))
+        .map((b) => b.toString(16).padStart(2, "0"))
+        .join("");
+    };
+
+    certForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      errorEl.classList.remove("is-visible");
+
+      const email = emailInput.value.trim().toLowerCase();
+      if (!email) {
+        emailInput.focus();
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Buscando…";
+
+      try {
+        const hash = await sha256Hex(email + salt);
+        const url = baseUrl + hash + ".pdf";
+        const response = await fetch(url, { method: "HEAD" });
+
+        if (response.ok) {
+          window.location.href = url;
+        } else {
+          errorEl.classList.add("is-visible");
+        }
+      } catch {
+        errorEl.classList.add("is-visible");
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Descargar certificado";
+      }
+    });
+  }
 });

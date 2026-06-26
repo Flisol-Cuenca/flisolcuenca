@@ -111,6 +111,19 @@
     margin-top: auto;
     width: 100%;
 }
+
+.inscription-card .card-secondary-link {
+    display: block;
+    margin-top: var(--space-sm);
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--color-green);
+    text-decoration: none;
+}
+
+.inscription-card .card-secondary-link:hover {
+    text-decoration: underline;
+}
 </style>
 
 <!-- Inscripciones -->
@@ -133,6 +146,7 @@
                     <li>Certificado de asistencia</li>
                 </ul>
                 <a href="https://luma.com/0jzh772u" class="btn btn-outline">Registro</a>
+                <a href="{{ SITEURL }}/certificados/" class="card-secondary-link">Descargar certificado</a>
             </article>
 
             <article class="inscription-card inscription-card--featured">
