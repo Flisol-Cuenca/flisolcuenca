@@ -83,6 +83,7 @@ HALL_OF_FAME_VOLUNTEERS = [
     'Pedro Jaramillo',
     'Elian Chacha',
     'Zaid San Lucas',
+    'Jordy Andrés Espinoza',
 ]
 
 SEO_DESCRIPTION = (
